@@ -1,0 +1,116 @@
+<template>
+  <div class="dashboard-editor-container">
+    <!--<github-corner class="github-corner" />-->
+
+    <!--<panel-group @handleSetLineChartData="handleSetLineChartData" />-->
+
+    <el-row>
+      <LineLayout />
+    </el-row>
+    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <line-chart :chart-data="lineChartData" />
+    </el-row>
+
+    <el-row>
+      <div class="chart-wrapper">
+        <bar-chart />
+      </div>
+    </el-row>
+  </div>
+</template>
+
+<script>
+// import GithubCorner from '@/components/GithubCorner'
+// import PanelGroup from './components/PanelGroup'
+import LineChart from './components/LineChart'
+import BarChart from './components/BarChart'
+import LineLayout from './components/LineLayout'
+
+const lineChartData = {
+  newVisitis: {
+    expectedData: [100, 120, 161, 134, 105, 160, 165],
+    actualData: [120, 82, 91, 154, 162, 140, 145]
+  },
+  messages: {
+    expectedData: [200, 192, 120, 144, 160, 130, 140],
+    actualData: [180, 160, 151, 106, 145, 150, 130]
+  },
+  purchases: {
+    expectedData: [80, 100, 121, 104, 105, 90, 100],
+    actualData: [120, 90, 100, 138, 142, 130, 130]
+  },
+  shoppings: {
+    expectedData: [130, 140, 141, 142, 145, 150, 160],
+    actualData: [120, 82, 91, 154, 162, 140, 130]
+  }
+}
+
+export default {
+  name: 'DashboardAdmin',
+  components: {
+    LineLayout,
+    LineChart,
+    BarChart
+  },
+  data() {
+    return {
+      lineChartData: lineChartData.newVisitis,
+      formInline: {
+        agTemp: '',
+        coolingTemp: ''
+      },
+      agTemptableData: [{
+        ch1: '50.1',
+        ch2: '50.9',
+        ch3: '50.5',
+        ch4: '50.3',
+        ch5: '50.1',
+        ch6: '49.8',
+        ch7: '49.6',
+        ch8: '50.6',
+        ch9: '50.1',
+        ch10: '50.3',
+        ch11: '50.6',
+        ch12: '49.1',
+        avg: '50'
+      }],
+      coolingTemptableData: [{
+        ch1: '25.1',
+        ch2: '25.2'
+      }]
+
+    }
+  },
+  methods: {
+    handleSetLineChartData(type) {
+      this.lineChartData = lineChartData[type]
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.dashboard-editor-container {
+  padding: 32px;
+  background-color: rgb(240, 242, 245);
+  position: relative;
+
+  .github-corner {
+    position: absolute;
+    top: 0px;
+    border: 0;
+    right: 0;
+  }
+
+  .chart-wrapper {
+    background: #fff;
+    padding: 16px 16px 0;
+    margin-bottom: 32px;
+  }
+  .layout-container {
+    /*background: #fff;*/
+    /*padding: 16px 16px 90px;*/
+    /*margin-bottom: 90px;*/
+  }
+}
+</style>
