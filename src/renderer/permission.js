@@ -2,7 +2,7 @@ import router from './router'
 import store from './store'
 import NProgress from 'nprogress' // Progress 进度条
 import 'nprogress/nprogress.css'// Progress 进度条样式
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 
 // import { getToken } from '@/utils/auth' // get token from cookie
 import getPageTitle from '@/utils/get-page-title'
@@ -19,7 +19,6 @@ router.beforeEach(async(to, from, next) => {
     if (to.path === '/login') {
       next({ path: '/' })
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
-      Message.error('/login')
     } else {
       // if (store.getters.roles.length === 0) {
       //   store.dispatch('GetInfo').then(res => { // 拉取用户信息
@@ -37,9 +36,7 @@ router.beforeEach(async(to, from, next) => {
       if (hasGetUserInfo) {
         next()
       } else {
-        Message.error('before/user/getInfo')
         await store.dispatch('user/getInfo')
-        Message.error('/user/getInfo')
         next()
         // try {
         //   // get user info
@@ -58,13 +55,11 @@ router.beforeEach(async(to, from, next) => {
   } else {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
-      Message.error('whiteList')
     } else {
       // next('/login')
       // other pages that do not have permission to access are redirected to the login page.
       next(`/login?redirect=${to.path}`)
       NProgress.done()
-      Message.error('/login?redirect=${to.path}')
     }
   }
 })
