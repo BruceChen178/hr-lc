@@ -16,6 +16,11 @@ const getters = {
 
   permission_routers: state => state.permission.routers,
   addRouters: state => state.permission.addRouters,
-  errorLogs: state => state.errorLog.logs
+  errorLogs: state => state.errorLog.logs,
+  allMetadatas: state => state.ioDevice.metadatas,
+  getMetadataBySection: (state) => (datasourceId, itemType, direction) => {
+    return state.ioDevice.metadatas.filter(metadata => metadata.datasourceId === datasourceId &&
+        metadata.direction === direction && metadata.sourceItemId.slice(0, 1) === itemType)
+  }
 }
 export default getters
