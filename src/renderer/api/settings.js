@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-export function getInspectionLists(query) {
+export function getInspectionLists() {
   return request({
     // url: '/v1/settings/inspections'.concat('/', query.page, '/', query.limit, '/', query.sort),
     url: '/v1/settings/inspection/list',
@@ -14,7 +14,7 @@ export function createInspection(data) {
     data
   })
 }
-export function updateInspection(data) {
+export function UpdateInspMachineEQPID(data) {
   return request({
     url: '/v1/settings/inspection/update',
     method: 'post',
@@ -22,14 +22,14 @@ export function updateInspection(data) {
   })
 }
 
-export function getHostinfos(query) {
+export function getHostInfos() {
   return request({
     // url: '/v1/settings/hostInfos'.concat('/', query.page, '/', query.limit, '/', query.sort),
     url: '/v1/settings/mes/host/info',
     method: 'get'
   })
 }
-export function updateHostinfos(data) {
+export function updateHostInfos(data) {
   return request({
     url: '/v1/settings/mes/host/update',
     method: 'post',

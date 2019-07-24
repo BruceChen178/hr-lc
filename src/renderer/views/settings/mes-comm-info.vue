@@ -30,118 +30,118 @@
       </el-form-item>
       <el-form-item
         label="LISTEN_SERVICE"
-        prop="listen_service">
-        <el-input v-model="temp.listen_service" />
+        prop="listenService">
+        <el-input v-model="temp.listenService" />
       </el-form-item>
       <el-form-item
         label="LISTEN_NETWORK"
-        prop="listen_network">
-        <el-input v-model="temp.listen_network" />
+        prop="listenNetwork">
+        <el-input v-model="temp.listenNetwork" />
       </el-form-item>
       <el-form-item
         label="LISTEN_DAEMON"
-        prop="listen_daemon">
-        <el-input v-model="temp.listen_daemon" />
+        prop="listenDaemon">
+        <el-input v-model="temp.listenDaemon" />
       </el-form-item>
       <el-form-item
         label="LISTEN_SUBJECT"
-        prop="listen_subject">
-        <el-input v-model="temp.listen_subject" />
+        prop="listenSubject">
+        <el-input v-model="temp.listenSubject" />
       </el-form-item>
       <el-form-item
         label="POL_TEST_HOSTNAME"
-        prop="pol_test_hostname">
-        <el-input v-model="temp.pol_test_hostname" />
+        prop="polTestHostname">
+        <el-input v-model="temp.polTestHostname" />
       </el-form-item>
       <el-form-item
         label="PI_HOSTNAME"
-        prop="pi_hostname">
-        <el-input v-model="temp.pi_hostname" />
+        prop="piHostname">
+        <el-input v-model="temp.piHostname" />
       </el-form-item>
       <el-form-item
         label="PT_AOI_HOSTNAME"
-        prop="pt_aoi_hostname">
-        <el-input v-model="temp.pt_aoi_hostname" />
+        prop="ptAOIHostname">
+        <el-input v-model="temp.ptAOIHostname" />
       </el-form-item>
       <el-form-item
         label="PT_MANU_HOSTNAME"
-        prop="pt_manu_hostname">
-        <el-input v-model="temp.pt_manu_hostname" />
+        prop="ptManuHostName">
+        <el-input v-model="temp.ptManuHostName" />
       </el-form-item>
       <el-form-item
         label="CF_HOSTNAME"
-        prop="cf_hostname">
-        <el-input v-model="temp.cf_hostname" />
+        prop="cfHostName">
+        <el-input v-model="temp.cfHostName" />
       </el-form-item>
       <el-form-item
         label="BLU_AOI_HOSTNAME"
-        prop="blu_aoi_hostname">
-        <el-input v-model="temp.blu_aoi_hostname" />
+        prop="bluHostName">
+        <el-input v-model="temp.bluHostName" />
       </el-form-item>
       <el-form-item
         label="AUTO_ASSY_HOSTNAME"
-        prop="auto_assy_hostname">
-        <el-input v-model="temp.auto_assy_hostname" />
+        prop="assyHostName">
+        <el-input v-model="temp.assyHostName" />
       </el-form-item>
       <el-form-item
         label="AUTO_ASSY_PLC_HOSTNAME"
-        prop="auto_assy_plc_hostname">
-        <el-input v-model="temp.auto_assy_plc_hostname" />
+        prop="assyPLCHostName">
+        <el-input v-model="temp.assyPLCHostName" />
       </el-form-item>
       <el-form-item
         label="AUTO_TAPE_HOSTNAME"
-        prop="auto_tape_hostname">
-        <el-input v-model="temp.auto_tape_hostname" />
+        prop="autoTapeHostName">
+        <el-input v-model="temp.autoTapeHostName" />
       </el-form-item>
       <el-form-item
         label="FI_AOI_HOSTNAME"
-        prop="fi_aoi_hostname">
-        <el-input v-model="temp.fi_aoi_hostname" />
+        prop="fiAOIHostName">
+        <el-input v-model="temp.fiAOIHostName" />
       </el-form-item>
       <el-form-item
         label="FI_TEST_HOSTNAME"
-        prop="fi_test_hostname">
-        <el-input v-model="temp.fi_test_hostname" />
+        prop="fiHostName">
+        <el-input v-model="temp.fiHostName" />
       </el-form-item>
       <el-form-item
         label="FILM_ATTACH_HOSTNAME"
-        prop="film_attach_hostname">
-        <el-input v-model="temp.film_attach_hostname" />
+        prop="filmAttachHostName">
+        <el-input v-model="temp.filmAttachHostName" />
       </el-form-item>
       <el-form-item
         label="AUTO_AFFIX_HOSTNAME"
-        prop="auto_affix_hostname">
-        <el-input v-model="temp.auto_affix_hostname" />
+        prop="autoAffixHostName">
+        <el-input v-model="temp.autoAffixHostName" />
       </el-form-item>
       <el-form-item
         label="APP_AOI_HOSTNAME"
-        prop="app_aoi_hostname">
-        <el-input v-model="temp.app_aoi_hostname" />
+        prop="appHostName">
+        <el-input v-model="temp.appHostName" />
       </el-form-item>
       <el-form-item
         label="ST_HOSTNAME"
-        prop="st_hostname">
-        <el-input v-model="temp.st_hostname" />
+        prop="stHostName">
+        <el-input v-model="temp.stHostName" />
       </el-form-item>
       <el-form-item
         label="VI_HOSTNAME"
-        prop="vi_hostname">
-        <el-input v-model="temp.vi_hostname" />
+        prop="viHostName">
+        <el-input v-model="temp.viHostName" />
       </el-form-item>
       <el-form-item
         label="RT_HOSTNAME"
-        prop="rt_hostname">
-        <el-input v-model="temp.rt_hostname" />
+        prop="rtHostName">
+        <el-input v-model="temp.rtHostName" />
       </el-form-item>
       <el-form-item
         label="AUTO_PACKING_HOSTNAME"
-        prop="auto_packing_hostname">
-        <el-input v-model="temp.auto_packing_hostname" />
+        prop="autoPackingHostName">
+        <el-input v-model="temp.autoPackingHostName" />
       </el-form-item>
       <el-form-item
         label="LINE_HOSTNAME"
-        prop="line_hostname">
-        <el-input v-model="temp.line_hostname" />
+        prop="lineHostName">
+        <el-input v-model="temp.lineHostName" />
       </el-form-item>
       <el-form-item
         label="TIMEOUT"
@@ -155,7 +155,7 @@
       style="float: right">
       <el-button
         type="primary"
-        @click="dialogStatus==='create'?createData():updateData()">
+        @click="updateData()">
         SAVE
       </el-button>
     </div>
@@ -163,47 +163,40 @@
 </template>
 
 <script>
-import { getHostinfos, updateHostinfos } from '@/api/settings'
-// import waves from '@/directive/waves' // waves directive
-
+import { getHostInfos, updateHostInfos } from '@/api/settings'
 export default {
   name: 'ComplexTable',
-  // directives: { waves },
   data() {
     return {
       list: null,
-      listQuery: {
-        page: 1,
-        limit: 1
-      },
       temp: {
         service: '',
         network: '',
         daemon: '',
         subject: '',
-        listen_service: '',
-        listen_network: '',
-        listen_daemon: '',
-        listen_subject: '',
-        pol_test_hostname: '',
-        pi_hostname: '',
-        pt_aoi_hostname: '',
-        pt_manu_hostname: '',
-        cf_hostname: '',
-        blu_aoi_hostname: '',
-        auto_assy_hostname: '',
-        auto_assy_plc_hostname: '',
-        auto_tape_hostname: '',
-        fi_aoi_hostname: '',
-        fi_test_hostname: '',
-        film_attach_hostname: '',
-        auto_affix_hostname: '',
-        app_aoi_hostname: '',
-        st_hostname: '',
-        vi_hostname: '',
-        rt_hostname: '',
-        auto_packing_hostname: '',
-        line_hostname: '',
+        listenService: '',
+        listenNetwork: '',
+        listenDaemon: '',
+        listenSubject: '',
+        polTestHostname: '',
+        piHostname: '',
+        ptAOIHostname: '',
+        ptManuHostName: '',
+        cfHostName: '',
+        bluHostName: '',
+        assyHostName: '',
+        assyPLCHostName: '',
+        autoTapeHostName: '',
+        fiAOIHostName: '',
+        fiHostName: '',
+        filmAttachHostName: '',
+        autoAffixHostName: '',
+        appHostName: '',
+        stHostName: '',
+        viHostName: '',
+        rtHostName: '',
+        autoPackingHostName: '',
+        lineHostName: '',
         timeout: ''
       },
       rules: {
@@ -211,29 +204,29 @@ export default {
         network: [{ required: true, message: 'service is required', trigger: 'blur' }],
         daemon: [{ required: true, message: 'service is required', trigger: 'blur' }],
         subject: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        listen_service: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        listen_network: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        listen_daemon: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        listen_subject: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        pol_test_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        pi_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        pt_aoi_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        pt_manu_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        cf_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        blu_aoi_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        auto_assy_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        auto_assy_plc_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        auto_tape_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        fi_aoi_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        fi_test_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        film_attach_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        auto_affix_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        app_aoi_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        st_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        vi_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        rt_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        auto_packing_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
-        line_hostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        listenService: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        listenNetwork: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        listenDaemon: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        listenSubject: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        polTestHostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        piHostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        ptAOIHostname: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        ptManuHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        cfHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        bluHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        assyHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        assyPLCHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        autoTapeHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        fiAOIHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        fiHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        filmAttachHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        autoAffixHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        appHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        stHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        viHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        rtHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        autoPackingHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
+        lineHostName: [{ required: true, message: 'service is required', trigger: 'blur' }],
         timeout: [{ required: true, message: 'service is required', trigger: 'blur' }]
       }
     }
@@ -243,9 +236,8 @@ export default {
   },
   methods: {
     getList() {
-      this.listLoading = true
-      getHostinfos(this.listQuery).then(response => {
-        this.list = response.data.items
+      getHostInfos().then(response => {
+        this.list = response
         if (this.list !== null) {
           this.handleUpdate()
         }
@@ -259,7 +251,7 @@ export default {
     },
     handleUpdate() {
       // eslint-disable-next-line prefer-destructuring
-      this.temp = this.list[0] // copy obj
+      this.temp = this.list // copy obj
       this.$nextTick(() => {
         this.$refs.dataForm.clearValidate()
       })
@@ -268,14 +260,7 @@ export default {
       this.$refs.dataForm.validate((valid) => {
         if (valid) {
           const tempData = Object.assign({}, this.temp)
-          // tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
-          updateHostinfos(tempData).then(() => {
-            // eslint-disable-next-line no-restricted-syntax
-            for (const v of this.list) {
-              const index = this.list.indexOf(v)
-              this.list.splice(index, 1, this.temp)
-              break
-            }
+          updateHostInfos(tempData).then(() => {
             this.$notify({
               title: '成功',
               message: '更新成功',
