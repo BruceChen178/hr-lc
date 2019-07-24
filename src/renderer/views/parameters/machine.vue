@@ -1,10 +1,10 @@
 <template>
-  <div>producr-parameters</div>
+
 </template>
 
 <script>
   export default {
-    name: 'ProductParameters'
+    name: 'Machine'
   }
 </script>
 

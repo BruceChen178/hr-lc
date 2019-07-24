@@ -89,7 +89,18 @@ export const asyncRouterMap = [
       }
     ]
   },
-
+  {
+    path: '/communication',
+    component: Layout,
+    children: [
+      {
+        path: 'communication',
+        name: 'Communication',
+        component: () => import('@/views/communication/index'),
+        meta: { title: 'Communication', icon: 'nested' }
+      }
+    ]
+  },
   {
     path: '/data',
     component: Layout,
@@ -114,22 +125,30 @@ export const asyncRouterMap = [
         name: 'Capacity',
         component: () => import('@/views/data/capacity'),
         meta: { title: 'Capacity', icon: 'table' }
-      },
-      {
-        path: 'eqp-parameters',
-        name: 'EQP Parameters',
-        component: () => import('@/views/data/eqp-parameters'),
-        meta: { title: 'EQP Parameters', icon: 'table' }
-      },
-      {
-        path: 'product-parameters',
-        name: 'Product Parameters',
-        component: () => import('@/views/data/product-parameters'),
-        meta: { title: 'Product Parameters', icon: 'table' }
       }
     ]
   },
-
+  {
+    path: '/parameters',
+    component: Layout,
+    redirect: '/parameters/machine',
+    name: 'Parameters',
+    meta: { title: 'Parameters', icon: 'list' },
+    children: [
+      {
+        path: 'machine',
+        name: 'Machine',
+        component: () => import('@/views/parameters/machine'),
+        meta: { title: 'Machine', icon: 'tab' }
+      },
+      {
+        path: 'product',
+        name: 'Product',
+        component: () => import('@/views/parameters/product'),
+        meta: { title: 'Product', icon: 'tab' }
+      }
+    ]
+  },
   {
     path: '/settings',
     component: Layout,
@@ -152,27 +171,6 @@ export const asyncRouterMap = [
     ]
   },
   {
-    path: '/history',
-    component: Layout,
-    redirect: '/history/inspection',
-    name: 'History',
-    meta: { title: 'History', icon: 'table' },
-    children: [
-      {
-        path: 'inspection',
-        name: 'Inspection',
-        component: () => import('@/views/history/inspection-history'),
-        meta: { title: 'Inspection-History', icon: 'table' }
-      },
-      {
-        path: 'workgroup',
-        name: 'WorkGroup',
-        component: () => import('@/views/history/workgroup-history'),
-        meta: { title: 'WorkGroup-History', icon: 'table' }
-      }
-    ]
-  },
-  {
     path: '/alarms',
     component: Layout,
     children: [
@@ -184,20 +182,50 @@ export const asyncRouterMap = [
       }
     ]
   },
-
   {
-    path: '/permission',
+    path: '/history',
     component: Layout,
+    redirect: '/history/inspection',
+    name: 'History',
+    meta: { title: 'History', icon: 'search' },
     children: [
       {
-        path: 'permission',
-        name: 'Permission',
-        component: () => import('@/views/permission/index'),
-        meta: { title: 'Permission', icon: 'password' }
+        path: 'inspection',
+        name: 'Inspection',
+        component: () => import('@/views/history/inspection-history'),
+        meta: { title: 'Inspection', icon: 'excel' }
+      },
+      {
+        path: 'workgroup',
+        name: 'WorkGroup',
+        component: () => import('@/views/history/workgroup-history'),
+        meta: { title: 'WorkGroup', icon: 'excel' }
       }
     ]
   },
-
+  {
+    path: '/userAuthority',
+    component: Layout,
+    redirect: '/userAuthority/user',
+    name: 'Permission',
+    meta: { title: 'Permission', icon: 'password' },
+    children: [
+      {
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/user/user'),
+        meta: { title: 'User', icon: 'user' },
+        menu: 'user'
+      },
+      {
+        path: 'role',
+        name: 'Role',
+        component: () => import('@/views/user/role'),
+        meta: { title: 'Role', icon: 'password' },
+        menu: 'role'
+      }
+    ]
+  },
   {
     path: '/config',
     component: Layout,
@@ -219,44 +247,6 @@ export const asyncRouterMap = [
       }
     ]
   },
-  {
-    path: '/userAuthority',
-    component: Layout,
-    redirect: '/userAuthority/user',
-    name: 'UserAuthority',
-    meta: { title: 'UserAuthority', icon: 'table' },
-    children: [
-      {
-        path: 'user',
-        name: 'User',
-        component: () => import('@/views/user/user'),
-        meta: { title: 'User', icon: 'user' },
-        menu: 'user'
-      },
-      {
-        path: 'role',
-        name: 'Role',
-        component: () => import('@/views/user/role'),
-        meta: { title: 'Role', icon: 'password' },
-        menu: 'role'
-      },
-      {
-        path: 'log',
-        name: 'Log',
-        component: () => import('@/views/user/log'),
-        meta: { title: 'Log', icon: 'password' },
-        menu: 'log'
-      },
-      {
-        path: 'line',
-        name: 'Line',
-        component: () => import('@/views/user/line'),
-        meta: { title: 'Line', icon: 'password' },
-        menu: 'line'
-      }
-    ]
-  },
-
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

@@ -1,10 +1,10 @@
 <template>
-  <div>permission</div>
+    <h>TODO</h>
 </template>
 
 <script>
   export default {
-    name: 'Index'
+    name: 'index'
   }
 </script>
 
