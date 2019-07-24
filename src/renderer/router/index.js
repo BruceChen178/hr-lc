@@ -229,7 +229,7 @@ export const asyncRouterMap = [
   {
     path: '/config',
     component: Layout,
-    redirect: '/config/inspection',
+    redirect: '/config/items',
     name: 'Config',
     meta: { title: 'Config', icon: 'form' },
     children: [
@@ -244,6 +244,12 @@ export const asyncRouterMap = [
         name: 'Metadata',
         component: () => import('@/views/config/metadata'),
         meta: { title: 'Metadata', icon: 'tree' }
+      },
+      {
+        path: 'parameters',
+        name: 'Parameters',
+        component: () => import('@/views/config/parameters'),
+        meta: { title: 'Parameters', icon: 'excel' }
       }
     ]
   },
