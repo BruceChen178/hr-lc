@@ -21,6 +21,7 @@
   "build": {
     "productName": "b8-m2-lc",
     "appId": "CIM-5G-UI",
+    "asar": false,
     "directories": {
       "output": "build"
     },
@@ -62,10 +63,10 @@
     "screenfull": "4.2.0",
     "vue": "2.5.10",
     "vue-electron": "^1.0.6",
+    "vue-native-websocket": "^2.0.13",
     "vue-router": "3.0.1",
     "vue-splitpane": "1.0.4",
-    "vuex": "3.0.1",
-    "vue-native-websocket": "^2.0.13"
+    "vuex": "3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

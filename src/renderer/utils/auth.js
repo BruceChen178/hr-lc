@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 const TokenKey = 'hasLogin'
 
 export function getToken() {
-  return '1'// Cookies.get(TokenKey)
+  return Cookies.get(TokenKey)
 }
 
 export function setToken() {

@@ -4,9 +4,25 @@ import { Message } from 'element-ui'
 
 axios.defaults.withCredentials = true
 
-// create an axios instance
+// import fs from 'fs'
+// // import path from 'path'
+
+// const fileContents = fs.readFileSync('../static/ip.txt', 'utf8')
+
+// console.log(fileContents)
+
+import { ip } from '../../../static/ip'
+// console.log(app)
+
+const remote = require('electron').remote
+const app = remote.app
+
+console.log(app.getPath('exe'))
+
+// create an axios instanceal
 const service = axios.create({
-  baseURL: process.env.BASE_API, // url = base url + request url
+  baseURL: ip,
+  // baseURL: process.env.BASE_API, // url = base url + request url
   withCredentials: true, // send cookies when cross-domain requests
   timeout: 15000 // request timeout
 })
@@ -16,6 +32,7 @@ service.interceptors.request.use(config => {
   // if (store.getters.token) {
   //   config.headers['X-Token'] = store.getters.token// 让每个请求携带自定义token 请根据实际情况自行修改
   // }
+  // Message.error(config.baseURL)
   return config
 }, error => {
   // Do something with request error

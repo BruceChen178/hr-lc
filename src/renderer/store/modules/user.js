@@ -16,7 +16,8 @@ const state = {
   roleId: '1',
   roleName: '',
   menus: [],
-  permissions: []
+  permissions: [],
+  hasLogin: false
 }
 
 const mutations = {
@@ -76,6 +77,7 @@ const mutations = {
     state.roleId = ''
     state.menus = []
     state.permissions = []
+    state.hasLogin = false
   },
   SET_USERNAME: (state, value) => {
     state.username = value
@@ -85,6 +87,9 @@ const mutations = {
   },
   SET_AVATAR: (state, value) => {
     state.avatar = value
+  },
+  SET_HASLOGIN: (state, value) => {
+    state.hasLogin = value
   }
 }
 
@@ -99,7 +104,8 @@ const actions = {
         .then(data => {
           if (data.code === 1) {
             // cookie中保存前端登录状态
-            setToken()
+            // setToken()
+            commit('SET_HASLOGIN', true)
           } else {
             Message.error(data.msg)
           }
@@ -148,12 +154,14 @@ const actions = {
       logout()
         .then(() => {
           commit('RESET_USER')
-          removeToken()
+          // removeToken()
+          commit('SET_HASLOGIN', false)
           resolve()
         })
         .catch(error => {
           commit('RESET_USER')
-          removeToken()
+          // removeToken()
+          commit('SET_HASLOGIN', false)
           reject(error)
         })
     })
