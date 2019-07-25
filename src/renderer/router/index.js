@@ -196,6 +196,24 @@ export const asyncRouterMap = [
         meta: { title: 'Inspection', icon: 'excel' }
       },
       {
+        path: 'status',
+        name: 'Status',
+        component: () => import('@/views/history/Status'),
+        meta: { title: 'Status', icon: 'excel' }
+      },
+      {
+        path: 'tacttime',
+        name: 'TactTime',
+        component: () => import('@/views/history/TactTime'),
+        meta: { title: 'TactTime', icon: 'excel' }
+      },
+      {
+        path: 'capacity',
+        name: 'Capacity',
+        component: () => import('@/views/history/Capacity'),
+        meta: { title: 'Capacity', icon: 'excel' }
+      },
+      {
         path: 'workgroup',
         name: 'WorkGroup',
         component: () => import('@/views/history/workgroup-history'),
