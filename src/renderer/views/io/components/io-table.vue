@@ -27,7 +27,7 @@
       </el-table-column>
 
       <el-table-column
-        min-width="100px"
+        min-width="350px"
         align="center"
         label="Comment">
         <template slot-scope="{row}">
@@ -40,7 +40,10 @@
         align="center"
         label="Value">
         <template slot-scope="{row}">
-          <span>{{ row.value }}</span>
+            <el-tag v-if="devType === 'B'" :type="row.value | statusFilter">
+                {{ row.value | valueFilter }}
+            </el-tag>
+            <span v-else>{{ row.value }}</span>
         </template>
       </el-table-column>
     </el-table>
@@ -52,6 +55,22 @@ import { mapState } from 'vuex'
 import { getEQMetadataByDSId } from '../../../api/datasource'
 export default {
   name: 'IOTable',
+  filters: {
+    statusFilter(value) {
+      const statusMap = {
+        0: 'danger',
+        1: 'success'
+      }
+      return statusMap[value]
+    },
+    valueFilter(value) {
+      const valueMap = {
+        0: 'OFF',
+        1: 'ON'
+      }
+      return valueMap[value]
+    }
+  },
   props: {
     datasourceId: {
       type: String,
@@ -240,6 +259,12 @@ export default {
             }
           }
         }
+        // test value
+        // for (i = 0; i < selectIOData.length; i++) {
+        //   if (selectIOData[i].datatype === 'BOOLEAN_TYPE' && selectIOData[i].direction === undefined) {
+        //     selectIOData[i]['value'] = 1
+        //   } else selectIOData[i]['value'] = 0
+        // }
         this.tableData = selectIOData
       })
 
