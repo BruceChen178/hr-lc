@@ -35,3 +35,9 @@ export function getEQMetadataByDSId(query) {
     method: 'get'
   })
 }
+export function getDataSourceConnState(query) {
+  return request({
+    url: '/v1/datasource/eq/data/get/{uid}'.concat('/', query),
+    method: 'get'
+  })
+}
