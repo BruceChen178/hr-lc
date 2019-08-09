@@ -3,12 +3,13 @@
         <div>
             <h2 style="margin-top: 50px;margin-left: 10px"> MES Host Connection State </h2>
             <el-row style="margin-left: 10px">
-                <div v-if="MESIsConnected === 1">
-                <el-button type="success">Remote</el-button>
-                </div>
-                <div v-else>
-                    <el-button type="danger">Local</el-button>
-                </div>
+                <el-button-group>
+                  <el-button v-if="MESIsConnected === 1" type="success">Connected</el-button>
+                  <el-button v-else type="danger">Disconnected</el-button>
+                  <el-button v-if="MESMode === 'remote'" type="success">Remote</el-button>
+                  <el-button v-else-if="MESMode === 'local'" type="info">Local</el-button>
+                  <el-button v-else="MESMode === 'offline'" type="danger">Offline</el-button>
+                  </el-button-group>
             </el-row>
         </div>
 
@@ -66,6 +67,7 @@
           currentDS: ''
         },
         MESIsConnected: null,
+        MESMode: null,
         PLCList: [],
         EQPList: []
       }

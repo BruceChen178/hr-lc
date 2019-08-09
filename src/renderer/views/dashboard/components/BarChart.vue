@@ -23,7 +23,7 @@ export default {
     },
     height: {
       type: String,
-      default: '300px'
+      default: '350px'
     }
   },
   data() {
@@ -41,6 +41,9 @@ export default {
     }, 100)
     window.addEventListener('resize', this.__resizeHandler)
   },
+  created() {
+    this.getTimeData()
+  },
   beforeDestroy() {
     if (!this.chart) {
       return
@@ -54,6 +57,11 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
 
       this.chart.setOption({
+        title: {
+          text: 'Capacity',
+          textStyle: { fontSize: 25 },
+          x: 'center'
+        },
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -61,7 +69,7 @@ export default {
           }
         },
         grid: {
-          top: 10,
+          top: 50,
           left: '2%',
           right: '2%',
           bottom: '3%',
@@ -80,29 +88,53 @@ export default {
             show: false
           }
         }],
+        legend: {
+          x: 'right',
+          data: ['PI', 'Panel Test', 'BLU AOI', 'FI AOI']
+          // data: this.PLCList
+        },
         series: [{
-          name: 'pageA',
+          name: 'PI',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [79, 52, 200, 334, 390, 330, 220],
+          data: [79, 52, 200, 334, 390, 330, 220, 100, 200, 300, 200, 334, 390, 330, 220],
           animationDuration
         }, {
-          name: 'pageB',
+          name: 'Panel Test',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [80, 52, 200, 334, 390, 330, 220],
+          data: [80, 52, 200, 334, 390, 330, 220, 100, 200, 300, 200, 334, 390, 330, 445],
           animationDuration
         }, {
-          name: 'pageC',
+          name: 'BLU AOI',
           type: 'bar',
           stack: 'vistors',
           barWidth: '60%',
-          data: [30, 52, 200, 334, 390, 330, 220],
+          data: [30, 52, 200, 334, 390, 330, 220, 100, 200, 300, 200, 334, 390, 330, 220],
+          animationDuration
+        }, {
+          name: 'FI AOI',
+          type: 'bar',
+          stack: 'vistors',
+          barWidth: '60%',
+          data: [30, 52, 200, 334, 390, 330, 220, 100, 200, 300, 52, 200, 334, 390, 330, 220],
           animationDuration
         }]
       })
+    },
+    getTimeData() {
+      const myDate = new Date()
+      const hour = myDate.getHours()
+      let h = hour
+      for (let i = 0; i < 24 - hour; i += 1) {
+        this.timeData.push(h)
+        h += 1
+      }
+      for (let i = 0; i < hour; i += 1) {
+        this.timeData.push(i)
+      }
     }
   }
 }
