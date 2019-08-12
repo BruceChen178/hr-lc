@@ -35,9 +35,21 @@ export function getEQMetadataByDSId(query) {
     method: 'get'
   })
 }
-export function getDataSourceConnState(query) {
+export function getDataSourceConnState(RequestSource) {
   return request({
-    url: '/v1/datasource/eq/data/get/{uid}'.concat('/', query),
+    url: '/v1/datasource/eq/plc/connection/{uid}',
+    method: 'get'
+  })
+}
+export function IsMESConnected() {
+  return request({
+    url: '/v1/datasource/host/connection/state',
+    method: 'get'
+  })
+}
+export function GetMESMode() {
+  return request({
+    url: '/v1/datasource/host/connection/mode',
     method: 'get'
   })
 }
