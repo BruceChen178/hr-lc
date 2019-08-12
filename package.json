@@ -56,11 +56,11 @@
   "dependencies": {
     "axios": "0.17.1",
     "echarts": "^4.2.1",
-    "element-ui": "2.3.4",
+    "element-ui": "2.4.11",
     "js-cookie": "^2.2.0",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
-    "screenfull": "4.2.0",
+    "screenfull": "4.2.1",
     "vue": "2.5.10",
     "vue-electron": "^1.0.6",
     "vue-native-websocket": "^2.0.13",

@@ -24,7 +24,6 @@ export function UpdateInspMachineEQPID(data) {
 
 export function getHostInfos() {
   return request({
-    // url: '/v1/settings/hostInfos'.concat('/', query.page, '/', query.limit, '/', query.sort),
     url: '/v1/settings/mes/host/info',
     method: 'get'
   })
@@ -34,5 +33,12 @@ export function updateHostInfos(data) {
     url: '/v1/settings/mes/host/update',
     method: 'post',
     data
+  })
+}
+
+export function SwitchMESConnectMode() {
+  return request({
+    url: '/v1/settings/mes/host/switch',
+    method: 'get'
   })
 }

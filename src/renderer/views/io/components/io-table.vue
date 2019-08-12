@@ -17,7 +17,7 @@
       </el-table-column>
 
       <el-table-column
-        min-width="350px"
+        min-width="270px"
         align="center"
         label="Comment">
         <template slot-scope="{row}">
@@ -49,14 +49,16 @@ export default {
     statusFilter(value) {
       const statusMap = {
         0: 'danger',
-        1: 'success'
+        1: 'success',
+        undefined: 'danger'
       }
       return statusMap[value]
     },
     valueFilter(value) {
       const valueMap = {
         0: 'OFF',
-        1: 'ON'
+        1: 'ON',
+        undefined: 'OFF'
       }
       return valueMap[value]
     }
@@ -79,8 +81,8 @@ export default {
       default: 0
     },
     direction: {
-      type: Number,
-      default: 0
+      type: String,
+      default: ''
     },
     comment: {
       type: String,
@@ -96,9 +98,9 @@ export default {
         sort: ''
       },
       loading: false,
-      tableData: [],
-      devType: this.devType,
-      direction: this.direction
+      tableData: []
+      // devType: this.devType,
+      // direction: this.direction
     }
   },
   mounted() {
@@ -146,7 +148,7 @@ export default {
         // const selectIOData = []
         for (; i < len; i++) {
           if (this.devType === 'B') {
-            if (this.direction === 0) {
+            if (this.direction === '0') {
               if (all[i].datatype === 'BOOLEAN_TYPE' && all[i].direction === undefined) {
                 this.tableData.push(all[i])
               }
@@ -156,7 +158,7 @@ export default {
               }
             }
           } else if (this.devType === 'W') {
-            if (this.direction === 0) {
+            if (this.direction === '0') {
               if (all[i].sourceItemId.includes('W') && all[i].direction === undefined) {
                 this.tableData.push(all[i])
               }

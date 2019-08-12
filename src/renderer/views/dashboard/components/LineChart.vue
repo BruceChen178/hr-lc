@@ -6,8 +6,9 @@
 
 <script>
 import echarts from 'echarts' // echarts theme
+import { getDatasources } from '@/api/datasource'
 import { debounce } from '@/utils'
-require('echarts/theme/macarons')
+require('echarts/theme/infographic')
 
 export default {
   props: {
@@ -36,7 +37,14 @@ export default {
     return {
       chart: null,
       sidebarElm: null,
-      timeData: []
+      timeData: [],
+      PLCList: [],
+      query: {
+        page: 1,
+        limit: 200,
+        sort: '',
+        currentDS: ''
+      }
     }
   },
   watch: {
@@ -46,6 +54,9 @@ export default {
         this.setOptions(val)
       }
     }
+  },
+  created() {
+    this.getPLCInfos()
   },
   mounted() {
     this.initChart()
@@ -79,6 +90,24 @@ export default {
     this.chart = null
   },
   methods: {
+    getPLCInfos() {
+      getDatasources(this.query)
+        .then(response => {
+          let data
+          let i = 0
+          const { length } = response.sources
+          for (; i < length; i += 1) {
+            data = response.sources[i]
+            this.PLCList.push(data.name)
+            console.log(this.PLCList[0])
+          }
+        })
+
+      // eslint-disable-next-line func-names
+        .catch(function(error) {
+          console.log(error)
+        })
+    },
     sidebarResizeHandler(e) {
       if (e.propertyName === 'width') {
         this.__resizeHandler()
@@ -96,24 +125,29 @@ export default {
         this.timeData.push(i)
       }
       this.chart.setOption({
+        title: {
+          text: 'Tact time',
+          textStyle: { fontSize: 25 },
+          x: 'center'
+        },
         xAxis: {
           data: this.timeData,
-          boundaryGap: false,
+          boundaryGap: true,
           axisTick: {
             show: false
           }
         },
         grid: {
-          left: 10,
+          left: '2%',
           right: 10,
           bottom: 20,
-          top: 30,
+          top: 50,
           containLabel: true
         },
         tooltip: {
           trigger: 'axis',
           axisPointer: {
-            type: 'cross'
+            type: 'shadow'
           },
           padding: [5, 10]
         },
@@ -124,28 +158,55 @@ export default {
           }
         },
         legend: {
-          data: ['Tact Time']
+          x: 'right',
+          data: ['BLU AOI PLC1', 'BLU AOI PLC2', 'Auto Assy PLC', 'FI AOI PLC1']
+          // data: this.PLCList
         },
-        series: [{
-          name: 'Tact Time', itemStyle: {
-            normal: {
-              color: '#FF005A',
-              lineStyle: {
-                color: '#FF005A',
-                width: 2
-              }
-            }
+        series: [
+          // {
+          //   name: 'Tact Time', itemStyle: {
+          //     normal: {
+          //       color: '#FF005A',
+          //       lineStyle: {
+          //         color: '#FF005A',
+          //         width: 2
+          //       }
+          //     }
+          //   },
+          //   smooth: true,
+          //   type: 'bar',
+          //   data: expectedData,
+          //   animationDuration: 2800,
+          //   animationEasing: 'cubicInOut'
+          // },
+          {
+            name: 'BLU AOI PLC1',
+            type: 'bar',
+            // itemStyle: itemStyle,
+            data: [30.7, 20.3, 22.1, 21, 33.8, 44.7, 60.6, 45.2, 44, 46.1, 38.1, 35.3, 60.6, 45.2, 44, 46.1]
           },
-          smooth: true,
-          type: 'line',
-          data: expectedData,
-          animationDuration: 2800,
-          animationEasing: 'cubicInOut'
-        }]
+          {
+            name: 'BLU AOI PLC2',
+            type: 'bar',
+            // itemStyle: itemStyle,
+            data: [30.3, 33.7, 44, 55.2, 66, 77.7, 88.7, 99.3, 44, 46.1, 38.1, 35.3, 66, 77.7, 88.7, 99.3]
+          },
+          {
+            name: 'Auto Assy PLC',
+            type: 'bar',
+            // itemStyle: itemStyle,
+            data: [44.9, 22.4, 55.3, 33.1, 44.7, 34.5, 35.5, 44.1, 44, 46.1, 38.1, 35.3, 55.3, 33.1, 44.7, 34.5]
+          },
+          {
+            name: 'FI AOI PLC1',
+            type: 'bar',
+            // itemStyle: itemStyle,
+            data: [35.9, 44, 46.1, 38.1, 35.3, 46.9, 67, 77.4, 44, 46.1, 38.1, 35.3, 46.1, 38.1, 35.3, 46.9]
+          }]
       })
     },
     initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
+      this.chart = echarts.init(this.$el, 'infographic')
       this.setOptions(this.chartData)
     }
 

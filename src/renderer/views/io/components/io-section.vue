@@ -16,7 +16,7 @@
                       :datasource-id="item.datasourceId"
                       :dev-type="item.devType"
                       :start-address="item.startPoint"
-                      :direction='0'
+                      :direction="plcDir"
                       :addr-len="item.length"
                       :comment="item.comment" />
           </el-col>
@@ -76,6 +76,7 @@ export default {
         sort: '',
         currentDS: ''
       },
+      plcDir: '0',
       dir: 'FROM_CIM',
       tabPosition: 'top'
     }
