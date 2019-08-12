@@ -39,8 +39,7 @@ const store = new Vuex.Store({
       state.socket.isConnected = true
       console.log('SOCKET_ONOPEN')
       // subscribe
-      Vue.prototype.$socket.send(JSON.stringify({ sub: ['IO'] }))
-      // this.$socket.send(JSON.stringify({ sub: ['IO'] }))
+      // Vue.prototype.$socket.send(JSON.stringify({ sub: ['IO'] }))
     },
     [SOCKET_ONCLOSE](state, event) {
       state.socket.isConnected = false
@@ -72,7 +71,7 @@ const store = new Vuex.Store({
             state.ioDevice.updatingDatasourceId = sourceId
             state.ioDevice.updatingSourceItemId = devType + devNo
             state.ioDevice.varValue = devVal
-            // console.log(sourceId, devType, devNo, devVal)
+            console.log(sourceId, devType, devNo, devVal)
           }
         }
       }

@@ -35,3 +35,10 @@ export function getEQMetadataByDSId(query) {
     method: 'get'
   })
 }
+
+export function GetEQCurrentMetadataByDSId(query) {
+  return request({
+    url: '/v1/datasource/eq/data/current/get'.concat('/', query.currentDS, '/', query.page, '/', query.limit, '/', query.sort),
+    method: 'get'
+  })
+}
