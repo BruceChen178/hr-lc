@@ -2,7 +2,7 @@
     <div style="">
         <div>
             <h2 style="margin-top: 50px;margin-left: 10px"> MES Host Connection State </h2>
-            <el-row style="margin-left: 10px">
+            <el-row style="margin-left: 50px">
                 <el-button-group>
                   <el-button v-if="MESIsConnected === 'MES_CONNECTED'" type="success">Connected</el-button>
                   <el-button v-else type="danger">Disconnected</el-button>
@@ -15,12 +15,8 @@
 
         <div>
             <h2 style="margin-top: 50px;margin-left: 10px"> PLC Connection State </h2>
-<!--            <el-button-group>-->
-<!--                <el-button type="primary">BLU AOI PLC1</el-button>-->
-<!--                <el-button type="success">Connected</el-button>-->
-<!--                <el-button type="warning">101ms</el-button>-->
                 <template v-for="item in PLCList">
-                    <div :key="item.name" style="margin-bottom: 10px; margin-left: 10px">
+                    <div :key="item.name" style="margin-bottom: 10px; margin-left: 50px">
                         <el-button-group>
                             <el-button type="primary" style="width: 130px">{{ item.name }}</el-button>
                             <el-button v-if="item.connected === 'CONNECTED'" type="success">Connected</el-button>
@@ -29,15 +25,10 @@
                         </el-button-group>
                     </div>
                 </template>
-
         </div>
 
         <div>
             <h2 style="margin-top: 50px; margin-left: 10px"> EQP Connection State </h2>
-<!--            <el-button-group>-->
-<!--                <el-button type="primary">BLU AOI PLC1</el-button>-->
-<!--                <el-button type="success">Connected</el-button>-->
-<!--            </el-button-group>-->
             <template v-for="item in EQPList">
                 <div :key="item.name" style="margin-bottom: 10px; margin-left: 50px; float: left">
                     <el-button-group>
@@ -56,6 +47,7 @@
 <script>
   import { getInspectionLists } from '@/api/settings'
   import { getDatasources, getDataSourceConnState, IsMESConnected, GetMESMode } from '@/api/datasource'
+  import socket from '@/utils/socket.js'
   export default {
     name: 'index',
     data() {
@@ -78,17 +70,50 @@
       this.getPLCInfos()
       this.getEQPList()
     },
+    mounted() {
+      socket.setCallback(this.callback)
+      socket.initWebSocket('192.168.31.86', 9002)
+    },
+    destroyed() {
+      socket.close()
+    },
     methods: {
+      callback: function(ip, e) {
+        // topic handler
+        var plcList = this.PLCList
+        var eqpList = this.EQPList
+        var msg = JSON.parse(e.data)
+        if (msg === undefined || msg['pub']['topic'] === undefined) {
+          return
+        }
+        var topic = msg['pub']['topic']
+        if (topic === 'PLCPerformance') {
+          var sourceId = msg['pub']['content']['ID']
+          var delay = msg['pub']['content']['CycleTime']
+          for (let i = 0; i < plcList.length; i++) {
+            if (plcList[i].id === sourceId) {
+              plcList[i].delay = Math.floor(delay * 1000) + 'ms'
+            }
+          }
+        }
+        if (topic === 'InspectionState') {
+          var eqpName = msg['pub']['content']['EQPName']
+          var eqpCon = msg['pub']['content']['Connected']
+          for (let i = 0; i < eqpList.length; i++) {
+            if (eqpList[i].name === eqpName) {
+              eqpList[i].connected = eqpCon
+            }
+          }
+        }
+      },
       getMESConnectedMode() {
         IsMESConnected().then(response => {
           this.MESIsConnected = response.state
-          // console.log(this.MESIsConnected)
         })
       },
       getMESMode() {
         GetMESMode().then(response => {
           this.MESMode = response.mode
-          // console.log(this.MESMode)
         })
       },
       getPLCInfos() {
@@ -100,7 +125,7 @@
             const { length } = response.sources
             for (; i < length; i += 1) {
               data = response.sources[i]
-              PLCConList.push({ id: data.id, name: data.name, delay: '200ms' })
+              PLCConList.push({ id: data.id, name: data.name, delay: '0ms' })
             }
             let j = 0
             const len = PLCConList.length

@@ -121,8 +121,6 @@ export default {
           const len = items.length
 
           if (len > 1) {
-            // items[0]['label'] = 'Bit'
-            // items[1]['label'] = 'Word'
             let i
             for (i = 0; i < len; i++) {
               if (items[i].devType === 'B') {
@@ -131,12 +129,10 @@ export default {
                 items[i]['label'] = 'Word'
               }
             }
-
             this.sections.push(items[0])
             this.sections.push(items[1])
           }
         })
-
         // eslint-disable-next-line func-names
         .catch(function(error) {
           console.log(error)
@@ -150,10 +146,9 @@ export default {
         let i = 0
         this.tableData.splice(0, this.tableData.length)
         this.tableData1.splice(0, this.tableData1.length)
-        // const selectIOData = []
+
         for (; i < len; i++) {
           if (tab.label === 'Bit') {
-            //   if (this.direction === '0') {
             if (all[i].datatype === 'BOOLEAN_TYPE' && all[i].direction === undefined) {
               this.tableData.push(all[i])
             }
@@ -170,7 +165,6 @@ export default {
           }
         }
       })
-      // this.$forceUpdate()
     },
     generateTemplate() {
       this.query.currentDS = this.datasourceId
@@ -178,10 +172,7 @@ export default {
         const all = response.data
         const len = all.length
         let i = 0
-        // const selectIOData = []
         for (; i < len; i++) {
-          // if (this.devType === 'B') {
-          //   if (this.direction === '0') {
           if (all[i].datatype === 'BOOLEAN_TYPE' && all[i].direction === undefined) {
             this.tableData.push(all[i])
           }
@@ -189,31 +180,6 @@ export default {
             this.tableData1.push(all[i])
           }
         }
-        console.log(this.table + '1111')
-        // else if (this.direction === 'FROM_CIM') {
-        //       if (all[i].datatype === 'BOOLEAN_TYPE' && all[i].direction === 'FROM_CIM') {
-        //         this.tableData.push(all[i])
-        //       }
-        //     }
-        //   } else if (this.devType === 'W') {
-        //     if (this.direction === '0') {
-        //       if (all[i].sourceItemId.includes('W') && all[i].direction === undefined) {
-        //         this.tableData.push(all[i])
-        //       }
-        //     } else if (this.direction === 'FROM_CIM') {
-        //       if (all[i].sourceItemId.includes('W') && all[i].direction === 'FROM_CIM') {
-        //         this.tableData.push(all[i])
-        //       }
-        //     }
-        //   }
-        // }
-        // test value
-        // for (i = 0; i < selectIOData.length; i++) {
-        //   if (selectIOData[i].datatype === 'BOOLEAN_TYPE' && selectIOData[i].direction === undefined) {
-        //     selectIOData[i]['value'] = 1
-        //   } else selectIOData[i]['value'] = 0
-        // }
-        // this.tableData = selectIOData
       })
     }
   }
