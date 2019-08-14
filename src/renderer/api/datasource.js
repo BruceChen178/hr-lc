@@ -35,9 +35,15 @@ export function getEQMetadataByDSId(query) {
     method: 'get'
   })
 }
-export function getDataSourceConnState(RequestSource) {
+export function GetEQCurrentMetadataByDSId(query) {
   return request({
-    url: '/v1/datasource/eq/plc/connection/{uid}',
+    url: '/v1/datasource/eq/data/current/get'.concat('/', query.currentDS, '/', query.page, '/', query.limit, '/', query.sort),
+    method: 'get'
+  })
+}
+export function getDataSourceConnState(query) {
+  return request({
+    url: '/v1/datasource/eq/plc/connection'.concat('/', query.currentDS),
     method: 'get'
   })
 }

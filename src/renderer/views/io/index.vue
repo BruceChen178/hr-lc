@@ -1,13 +1,8 @@
 <template>
   <div class="tab-container">
-<!--    <el-tag>mounted times ：{{ createdTimes }}</el-tag>-->
-<!--    <el-alert-->
-<!--      :closable="false"-->
-<!--      style="width:200px;display:inline-block;vertical-align: middle;margin-left:30px;"-->
-<!--      title="Tab with keep-alive"-->
-<!--      type="success" />-->
     <el-tabs
       v-model="activeName"
+      @tab-click="handleClick"
       type="border-card"
       style="margin-top:15px;"
       >
@@ -17,18 +12,13 @@
         :label="item.label"
         :name="item.key"
         style="">
-        <keep-alive>
-          <!--          <tab-pane v-if="activeName==item.key" :type="item.key" @create="showCreatedTimes" />-->
-          <i-o-section :datasource-id="item.key" />
-          <h3>fjsofdsfsdpfdios</h3>
-        </keep-alive>
+          <i-o-section v-if="item.active" :datasource-id="item.key" />
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script>
-// import tabPane from './components/TabPane'
 import { getDatasources } from '@/api/datasource'
 import IOSection from './components/io-section'
 export default {
@@ -38,21 +28,28 @@ export default {
     return {
       query: {
         page: 1,
-        limit: 20,
+        limit: 50,
         sort: '',
         currentDS: ''
       },
       tabMapOptions: [],
-      activeName: '',
-      createdTimes: 0
+      activeName: ''
     }
   },
   created() {
     this.fillOptions()
   },
   methods: {
-    showCreatedTimes() {
-      this.createdTimes = this.createdTimes + 1
+    handleClick(tab) {
+      let i = 0
+      const len = this.tabMapOptions.length
+      for (;i < len; i++) {
+        if (this.tabMapOptions[i].label === tab.label) {
+          this.tabMapOptions[i].active = true
+        } else {
+          this.tabMapOptions[i].active = false
+        }
+      }
     },
     fillOptions() {
       getDatasources(this.query)
@@ -65,8 +62,10 @@ export default {
             data = response.sources[i]
             if (i === 0) {
               this.activeName = data.id
+              this.tabMapOptions.push({ label: data.name, key: data.id, active: true })
+            } else {
+              this.tabMapOptions.push({ label: data.name, key: data.id, active: false })
             }
-            this.tabMapOptions.push({ label: data.name, key: data.id })
           }
         })
         // eslint-disable-next-line func-names

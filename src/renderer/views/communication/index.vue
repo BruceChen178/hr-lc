@@ -4,11 +4,11 @@
             <h2 style="margin-top: 50px;margin-left: 10px"> MES Host Connection State </h2>
             <el-row style="margin-left: 10px">
                 <el-button-group>
-                  <el-button v-if="MESIsConnected === 1" type="success">Connected</el-button>
+                  <el-button v-if="MESIsConnected === 'MES_CONNECTED'" type="success">Connected</el-button>
                   <el-button v-else type="danger">Disconnected</el-button>
-                  <el-button v-if="MESMode === 'remote'" type="success">Remote</el-button>
-                  <el-button v-else-if="MESMode === 'local'" type="info">Local</el-button>
-                  <el-button v-else="MESMode === 'offline'" type="danger">Offline</el-button>
+                  <el-button v-if="MESMode === 'REMOTE'" type="success">Remote</el-button>
+                  <el-button v-else-if="MESMode === 'LOCAL'" type="info">Local</el-button>
+                  <el-button v-else="MESMode === 'OFFLINE'" type="danger">Offline</el-button>
                   </el-button-group>
             </el-row>
         </div>
@@ -23,7 +23,7 @@
                     <div :key="item.name" style="margin-bottom: 10px; margin-left: 10px">
                         <el-button-group>
                             <el-button type="primary" style="width: 130px">{{ item.name }}</el-button>
-                            <el-button v-if="item.connected === true" type="success">Connected</el-button>
+                            <el-button v-if="item.connected === 'CONNECTED'" type="success">Connected</el-button>
                             <el-button v-else type="danger">Disconnected</el-button>
                             <el-button type="warning">{{ item.delay }}</el-button>
                         </el-button-group>
@@ -54,8 +54,8 @@
 
 
 <script>
-  import { SwitchMESConnectMode, getInspectionLists } from '@/api/settings'
-  import { getDatasources } from '@/api/datasource'
+  import { getInspectionLists } from '@/api/settings'
+  import { getDatasources, getDataSourceConnState, IsMESConnected, GetMESMode } from '@/api/datasource'
   export default {
     name: 'index',
     data() {
@@ -74,17 +74,25 @@
     },
     created() {
       this.getMESConnectedMode()
+      this.getMESMode()
       this.getPLCInfos()
       this.getEQPList()
     },
     methods: {
       getMESConnectedMode() {
-        SwitchMESConnectMode().then(response => {
-          this.MESIsConnected = response.code
-          console.log(this.MESIsConnected)
+        IsMESConnected().then(response => {
+          this.MESIsConnected = response.state
+          // console.log(this.MESIsConnected)
+        })
+      },
+      getMESMode() {
+        GetMESMode().then(response => {
+          this.MESMode = response.mode
+          // console.log(this.MESMode)
         })
       },
       getPLCInfos() {
+        const PLCConList = []
         getDatasources(this.query)
           .then(response => {
             let data
@@ -92,14 +100,24 @@
             const { length } = response.sources
             for (; i < length; i += 1) {
               data = response.sources[i]
-              // getDataSourceConnState(data.id).then(response => {
-              //   const PLCConnState = response.state
-              //   this.PLCList.push({ name: data.name, connected: PLCConnState, delay: '200ms' })
-              // })
-              this.PLCList.push({ name: data.name, delay: '200ms' })
+              PLCConList.push({ id: data.id, name: data.name, delay: '200ms' })
+            }
+            let j = 0
+            const len = PLCConList.length
+            for (; j < len; j += 1) {
+              this.query.currentDS = PLCConList[j].id
+              getDataSourceConnState(this.query).then(response => {
+                const PLCConnState = response
+                let a = 0
+                for (; a < len; a++) {
+                  if (PLCConList[a].id === PLCConnState.id) {
+                    PLCConList[a]['connected'] = PLCConnState.state
+                    this.PLCList.push(PLCConList[a])
+                  }
+                }
+              })
             }
           })
-
           // eslint-disable-next-line func-names
           .catch(function(error) {
             console.log(error)
