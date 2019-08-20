@@ -8,12 +8,12 @@
         slot="header"
         class="clearfix">
         <span>POL TEST</span>
-        <el-button
-          class="alarmItem"
-          type="danger"
-          circle>
-          {{ polTestAlarmNumber }}
-        </el-button>
+<!--        <el-button-->
+<!--          class="alarmItem"-->
+<!--          type="danger"-->
+<!--          circle>-->
+<!--          {{ polTestAlarmNumber }}-->
+<!--        </el-button>-->
       </div>
       <div class="text item">
         <el-collapse accordion>
@@ -861,23 +861,23 @@ export default {
       viIsHide: false,
       autoPackingIsHide: false,
       RTIsHide: false,
-      polTestAlarmNumber: 0,
-      piAlarmNumber: 0,
-      ptAoiAlarmNumber: 0,
-      panelTestAlarmNumber: 0,
-      cfTestAlarmNumber: 2,
-      bluAoiAlarmNumber: 0,
-      autoAssyAlarmNumber: 0,
-      autoTapeAlarmNumber: 0,
-      fiAoiAlarmNumber: 0,
-      filmAttachAlarmNumber: 0,
-      fiTestAlarmNumber: 0,
-      autoAffixAlarmNumber: 0,
-      appAoiAlarmNumber: 0,
-      stAlarmNumber: 0,
-      viAlarmNumber: 0,
-      autoPackingAlarmNumber: 0,
-      RTAlarmNumber: 0,
+      // polTestAlarmNumber: 0,
+      // piAlarmNumber: 0,
+      // ptAoiAlarmNumber: 0,
+      // panelTestAlarmNumber: 0,
+      // cfTestAlarmNumber: 2,
+      // bluAoiAlarmNumber: 0,
+      // autoAssyAlarmNumber: 0,
+      // autoTapeAlarmNumber: 0,
+      // fiAoiAlarmNumber: 0,
+      // filmAttachAlarmNumber: 0,
+      // fiTestAlarmNumber: 0,
+      // autoAffixAlarmNumber: 0,
+      // appAoiAlarmNumber: 0,
+      // stAlarmNumber: 0,
+      // viAlarmNumber: 0,
+      // autoPackingAlarmNumber: 0,
+      // RTAlarmNumber: 0,
       polTest: [{ name: 'POL Test 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
         { name: 'POL Test 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
         { name: 'POL Test 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
@@ -962,9 +962,7 @@ export default {
         { name: 'RT 08', fgCode: 'NT140WHM-N34-8947', capacity: '12345', tt: '', connected: false, state: '' },
         { name: 'RT 09', fgCode: 'NT140WHM-N34-8948', capacity: '12345', tt: '', connected: false, state: '' },
         { name: 'RT 10', fgCode: 'NT140WHM-N34-8949', capacity: '12345', tt: '', connected: false, state: '' }
-      ],
-
-      alarmNumber: '0'
+      ]
 
     }
   },
@@ -1398,31 +1396,18 @@ export default {
         this.appAoi[1].capacity = capacity.app_aoi_unit2_cap
       })
     }
-    // dataChange: function() {
-    //   for (var i = 0, len = this.polTest.length; i < len; i++) {
-    //     if (this.polTest[i].name === 'polTest01') {
-    //           this.set(this.polTest, i, )
-    //
-    //     }
-    //   }
-    // }
   }
-
 }
 </script>
 
 <style scoped>
   .box-card {
-      /*width: 246px;*/
-      /*width: 268px;*/
       width: 404px;
       height: 430px;
       float: left;
       margin: 5px;
     }
   .box-card-2 {
-    /*width: 246px;*/
-    /*width: 268px;*/
     width: 404px;
     height: 610px;
     float: left;
