@@ -4,8 +4,9 @@
     <breadcrumb class="breadcrumb-container"></breadcrumb>
     <div class="right-menu">
 <!--      <template v-if="device!=='mobile'">-->
+        <alarm class="right-menu-item hover-effect" />
         <error-log class="errLog-container right-menu-item hover-effect" />
-        <screenfull id="screenfull" class="right-menu-item hover-effect" />
+        <screenfull class="right-menu-item hover-effect" />
         <lang-select class="right-menu-item hover-effect" />
 <!--      </template>-->
     <el-dropdown class="avatar-container" trigger="click">
@@ -38,6 +39,7 @@ import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
 import LangSelect from '@/components/LangSelect'
+import Alarm from '@/components/Alarms'
 
 export default {
   components: {
@@ -45,7 +47,8 @@ export default {
     Hamburger,
     ErrorLog,
     Screenfull,
-    LangSelect
+    LangSelect,
+    Alarm
   },
   computed: {
     ...mapGetters([
@@ -100,12 +103,12 @@ export default {
   .breadcrumb-container {
     float: left;
   }
-  .screenfull {
-    position: absolute;
-    right: 90px;
-    top: 16px;
-    color: red;
-  }
+  /*.screenfull {*/
+  /*  position: absolute;*/
+  /*  right: 90px;*/
+  /*  top: 16px;*/
+  /*  color: red;*/
+  /*}*/
   .name-wrapper {
     float: right;
     cursor: pointer;

@@ -390,7 +390,7 @@
 
         <el-col :span="3">
           <el-button-group>
-            <el-button>Unit10</el-button>
+            <el-button style="width:60px">Unit10</el-button>
             <el-button v-if="capacity.FI_UNIT10_CAP !== undefined" type="warning" class="capacityButton">{{capacity.FI_UNIT10_CAP}}</el-button>
               <el-button v-else type="warning" class="capacityButton">0</el-button>
           </el-button-group>
@@ -519,7 +519,7 @@
 
         <el-col :span="3">
           <el-button-group>
-            <el-button>Unit10</el-button>
+            <el-button style="width:60px">Unit10</el-button>
             <el-button v-if="capacity.RT_UNIT10_CAP !== undefined" type="warning" class="capacityButton">{{capacity.RT_UNIT10_CAP}}</el-button>
               <el-button v-else type="warning" class="capacityButton">0</el-button>
           </el-button-group>
@@ -723,7 +723,75 @@
         if (topic === 'CurrentCapacity') {
           var unitName = msg['pub']['content']['UnitName']
           var currentCapacity = msg['pub']['content']['CurrentCapacity']
-          capacity[unitName] = currentCapacity
+          if (unitName === 'PTAOI_UNIT1') {
+            capacity.pt_aoi_unit1_cap = currentCapacity
+          }
+          if (unitName === 'PTAOI_UNIT2') {
+            capacity.pt_aoi_unit2_cap = currentCapacity
+          }
+          if (unitName === 'PTAOI_UNIT3') {
+            capacity.pt_aoi_unit3_cap = currentCapacity
+          }
+          if (unitName === 'PTAOI_UNIT4') {
+            capacity.pt_aoi_unit4_cap = currentCapacity
+          }
+          if (unitName === 'BLUAOI_UNIT1') {
+            capacity.blu_aoi_unit1_cap = currentCapacity
+          }
+          if (unitName === 'BLUAOI_UNIT2') {
+            capacity.blu_aoi_unit2_cap = currentCapacity
+          }
+          if (unitName === 'BLUAOI_UNIT3') {
+            capacity.blu_aoi_unit3_cap = currentCapacity
+          }
+          if (unitName === 'BLUAOI_UNIT4') {
+            capacity.blu_aoi_unit4_cap = currentCapacity
+          }
+          if (unitName === 'AutoAssy_UNIT1') {
+            capacity.auto_assy_unit1_cap = currentCapacity
+          }
+          if (unitName === 'AutoAssy_UNIT2') {
+            capacity.auto_assy_unit2_cap = currentCapacity
+          }
+          if (unitName === 'FIAOI_UNIT1') {
+            capacity.fi_aoi_unit1_cap = currentCapacity
+          }
+          if (unitName === 'FIAOI_UNIT2') {
+            capacity.fi_aoi_unit2_cap = currentCapacity
+          }
+          if (unitName === 'FIAOI_UNIT3') {
+            capacity.fi_aoi_unit3_cap = currentCapacity
+          }
+          if (unitName === 'FIAOI_UNIT4') {
+            capacity.fi_aoi_unit4_cap = currentCapacity
+          }
+          if (unitName === 'FIAOI_UNIT5') {
+            capacity.fi_aoi_unit5_cap = currentCapacity
+          }
+          if (unitName === 'FIAOI_UNIT6') {
+            capacity.fi_aoi_unit6_cap = currentCapacity
+          }
+          if (unitName === 'AutoAffix_UNIT1') {
+            capacity.auto_affix_unit1_cap = currentCapacity
+          }
+          if (unitName === 'AutoAffix_UNIT2') {
+            capacity.auto_affix_unit2_cap = currentCapacity
+          }
+          if (unitName === 'AppAOI_UNIT1') {
+            capacity.app_aoi_unit1_cap = currentCapacity
+          }
+          if (unitName === 'AppAOI_UNIT2') {
+            capacity.app_aoi_unit2_cap = currentCapacity
+          }
+          if (unitName === 'AutoTape_UNIT1') {
+            capacity.auto_tape_unit1_cap = currentCapacity
+          }
+          if (unitName === 'FilmAttach_UNIT1') {
+            capacity.film_attach_unit1_cap = currentCapacity
+          }
+          if (unitName === 'AutoPacking_UNIT1') {
+            capacity.auto_packing_unit1_cap = currentCapacity
+          }
         }
       }
     }

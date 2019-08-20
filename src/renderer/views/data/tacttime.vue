@@ -3,28 +3,28 @@
     <el-form :label-position="labelPosition" label-width="180px" style="margin:50px; vertical-align: center">
       <el-header align="center"> 设备节拍</el-header>
       <el-form-item label="PT AOI Zone">
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit1</el-button>
             <el-button v-if="tacttime.pt_aoi_unit1_tt !== undefined" type="warning" class="ttButton">{{tacttime.pt_aoi_unit1_tt}}</el-button>
             <el-button v-else type="warning" class="ttButton">0.0</el-button>
           </el-button-group>
         </el-col>
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit2</el-button>
             <el-button v-if="tacttime.pt_aoi_unit2_tt !== undefined" type="warning" class="ttButton">{{tacttime.pt_aoi_unit2_tt}}</el-button>
               <el-button v-else type="warning" class="ttButton">0.0</el-button>
           </el-button-group>
         </el-col>
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit3</el-button>
             <el-button v-if="tacttime.pt_aoi_unit3_tt !== undefined" type="warning" class="ttButton">{{tacttime.pt_aoi_unit3_tt}}</el-button>
               <el-button v-else type="warning" class="ttButton">0.0</el-button>
           </el-button-group>
         </el-col>
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit4</el-button>
             <el-button v-if="tacttime.pt_aoi_unit4_tt !== undefined" type="warning" class="ttButton">{{tacttime.pt_aoi_unit4_tt}}</el-button>
@@ -33,7 +33,7 @@
         </el-col>
       </el-form-item>
       <el-form-item label="BLU AOI Zone">
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit1</el-button>
             <el-button v-if="tacttime.blu_aoi_unit1_tt !== undefined" type="warning" class="ttButton">{{tacttime.blu_aoi_unit1_tt}}</el-button>
@@ -41,7 +41,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit2</el-button>
             <el-button v-if="tacttime.blu_aoi_unit2_tt !== undefined" type="warning" class="ttButton">{{tacttime.blu_aoi_unit2_tt}}</el-button>
@@ -49,7 +49,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit3</el-button>
             <el-button v-if="tacttime.blu_aoi_unit3_tt !== undefined" type="warning" class="ttButton">{{tacttime.blu_aoi_unit3_tt}}</el-button>
@@ -57,7 +57,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit4</el-button>
             <el-button v-if="tacttime.blu_aoi_unit4_tt !== undefined" type="warning" class="ttButton">{{tacttime.blu_aoi_unit4_tt}}</el-button>
@@ -68,7 +68,7 @@
       </el-form-item>
 
       <el-form-item label="Auto Assembly Zone">
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit1</el-button>
             <el-button v-if="tacttime.auto_assy_unit1_tt !== undefined" type="warning" class="ttButton">{{tacttime.auto_assy_unit1_tt}}</el-button>
@@ -76,7 +76,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit2</el-button>
             <el-button v-if="tacttime.auto_assy_unit2_tt !== undefined" type="warning" class="ttButton">{{tacttime.auto_assy_unit2_tt}}</el-button>
@@ -86,7 +86,7 @@
       </el-form-item>
 
       <el-form-item label="FI AOI Zone">
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit1</el-button>
             <el-button v-if="tacttime.fi_aoi_unit1_tt !== undefined" type="warning" class="ttButton">{{tacttime.fi_aoi_unit1_tt}}</el-button>
@@ -94,7 +94,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit2</el-button>
             <el-button v-if="tacttime.fi_aoi_unit2_tt !== undefined" type="warning" class="ttButton">{{tacttime.fi_aoi_unit2_tt}}</el-button>
@@ -102,7 +102,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit3</el-button>
             <el-button v-if="tacttime.fi_aoi_unit3_tt !== undefined" type="warning" class="ttButton">{{tacttime.fi_aoi_unit3_tt}}</el-button>
@@ -110,14 +110,14 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit4</el-button>
             <el-button v-if="tacttime.fi_aoi_unit4_tt !== undefined" type="warning" class="ttButton">{{tacttime.fi_aoi_unit4_tt}}</el-button>
               <el-button v-else type="warning" class="ttButton">0.0</el-button>
           </el-button-group>
         </el-col>
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit5</el-button>
             <el-button v-if="tacttime.fi_aoi_unit5_tt !== undefined" type="warning" class="ttButton">{{tacttime.fi_aoi_unit5_tt}}</el-button>
@@ -125,7 +125,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit6</el-button>
             <el-button v-if="tacttime.fi_aoi_unit6_tt !== undefined" type="warning" class="ttButton">{{tacttime.fi_aoi_unit6_tt}}</el-button>
@@ -135,7 +135,7 @@
       </el-form-item>
 
       <el-form-item label="Auto Affix Zone">
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit1</el-button>
             <el-button v-if="tacttime.auto_affix_unit1_tt !== undefined" type="warning" class="ttButton">{{tacttime.auto_affix_unit1_tt}}</el-button>
@@ -143,7 +143,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit2</el-button>
             <el-button v-if="tacttime.auto_affix_unit2_tt !== undefined"  type="warning" class="ttButton">{{tacttime.auto_affix_unit2_tt}}</el-button>
@@ -153,7 +153,7 @@
       </el-form-item>
 
       <el-form-item label="App AOI Zone">
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit1</el-button>
             <el-button  v-if="tacttime.app_aoi_unit1_tt !== undefined" type="warning" class="ttButton">{{tacttime.app_aoi_unit1_tt}}</el-button>
@@ -161,7 +161,7 @@
           </el-button-group>
         </el-col>
 
-        <el-col :span="5">
+        <el-col :span="4">
           <el-button-group>
             <el-button>Unit2</el-button>
             <el-button v-if="tacttime.app_aoi_unit2_tt !== undefined" type="warning" class="ttButton">{{tacttime.app_aoi_unit2_tt}}</el-button>
@@ -171,7 +171,7 @@
       </el-form-item>
 
       <el-form-item label="Auto Tape Zone">
-        <el-col :span="6">
+        <el-col :span="6 ">
           <el-button-group>
             <el-button>Unit1</el-button>
             <el-button v-if="tacttime.auto_tape_unit1_tt !== undefined" type="warning" class="ttButton">{{tacttime.auto_tape_unit1_tt}}</el-button>
@@ -281,7 +281,75 @@
         if (topic === 'TactTime') {
           var unitName = msg['pub']['content']['UnitName']
           var tt = msg['pub']['content']['TactTime']
-          tacttime[unitName] = tt
+          if (unitName === 'PTAOI_UNIT1') {
+            tacttime.pt_aoi_unit1_tt = tt
+          }
+          if (unitName === 'PTAOI_UNIT2') {
+            tacttime.pt_aoi_unit2_tt = tt
+          }
+          if (unitName === 'PTAOI_UNIT3') {
+            tacttime.pt_aoi_unit3_tt = tt
+          }
+          if (unitName === 'PTAOI_UNIT4') {
+            tacttime.pt_aoi_unit4_tt = tt
+          }
+          if (unitName === 'BLUAOI_UNIT1') {
+            tacttime.blu_aoi_unit1_tt = tt
+          }
+          if (unitName === 'BLUAOI_UNIT2') {
+            tacttime.blu_aoi_unit2_tt = tt
+          }
+          if (unitName === 'BLUAOI_UNIT3') {
+            tacttime.blu_aoi_unit3_tt = tt
+          }
+          if (unitName === 'BLUAOI_UNIT4') {
+            tacttime.blu_aoi_unit4_tt = tt
+          }
+          if (unitName === 'AutoAssy_UNIT1') {
+            tacttime.auto_assy_unit1_tt = tt
+          }
+          if (unitName === 'AutoAssy_UNIT2') {
+            tacttime.auto_assy_unit2_tt = tt
+          }
+          if (unitName === 'FIAOI_UNIT1') {
+            tacttime.fi_aoi_unit1_tt = tt
+          }
+          if (unitName === 'FIAOI_UNIT2') {
+            tacttime.fi_aoi_unit2_tt = tt
+          }
+          if (unitName === 'FIAOI_UNIT3') {
+            tacttime.fi_aoi_unit3_tt = tt
+          }
+          if (unitName === 'FIAOI_UNIT4') {
+            tacttime.fi_aoi_unit4_tt = tt
+          }
+          if (unitName === 'FIAOI_UNIT5') {
+            tacttime.fi_aoi_unit5_tt = tt
+          }
+          if (unitName === 'FIAOI_UNIT6') {
+            tacttime.fi_aoi_unit6_tt = tt
+          }
+          if (unitName === 'AutoAffix_UNIT1') {
+            tacttime.auto_affix_unit1_tt = tt
+          }
+          if (unitName === 'AutoAffix_UNIT2') {
+            tacttime.auto_affix_unit2_tt = tt
+          }
+          if (unitName === 'AppAOI_UNIT1') {
+            tacttime.app_aoi_unit1_tt = tt
+          }
+          if (unitName === 'AppAOI_UNIT2') {
+            tacttime.app_aoi_unit2_tt = tt
+          }
+          if (unitName === 'AutoTape_UNIT1') {
+            tacttime.auto_tape_unit1_tt = tt
+          }
+          if (unitName === 'FilmAttach_UNIT1') {
+            tacttime.film_attach_unit1_tt = tt
+          }
+          if (unitName === 'AutoPacking_UNIT1') {
+            tacttime.auto_packing_unit1_tt = tt
+          }
         }
       }
     }

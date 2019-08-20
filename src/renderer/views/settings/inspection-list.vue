@@ -18,7 +18,7 @@
       </el-table-column>
 
       <el-table-column
-        width="150px"
+        width="250px"
         align="center"
         label="IP">
         <template slot-scope="scope">
@@ -27,7 +27,7 @@
       </el-table-column>
 
       <el-table-column
-        width="130px"
+        width="150px"
         label="EQP Name">
         <template slot-scope="scope">
           <span>{{ scope.row.eqpName }}</span>
@@ -36,6 +36,7 @@
 
       <el-table-column
         min-width="100px"
+        max-width="500px"
         label="EQP ID">
         <template slot-scope="{row}">
           <template v-if="row.edit">
@@ -59,14 +60,14 @@
       <el-table-column
         class-name="status-col"
         label="Port Num"
-        width="110">
+        width="150px">
         <template slot-scope="scope">
           <span>{{ scope.row.portNum }}</span>
         </template>
       </el-table-column>
 
       <el-table-column
-        width="100px"
+        width="150px"
         align="center"
         label="Used">
         <template slot-scope="scope">
@@ -75,7 +76,7 @@
       </el-table-column>
 
       <el-table-column
-        width="180px"
+        width="300px"
         align="center"
         label="UpdateTime">
         <template slot-scope="scope">
@@ -131,15 +132,15 @@ export default {
       getInspectionLists().then(response => {
         const data = response
         const items = data.machines
+        setTimeout(() => {
+          this.listLoading = false
+        }, 1.5 * 1000)
         this.list = items.map(v => {
           this.$set(v, 'edit', false) // https://vuejs.org/v2/guide/reactivity.html
           v.originalID = v.eqpId //  will be used when user click the cancel botton
           return v
         })
         this.listLoading = false
-        setTimeout(() => {
-          this.listLoading = false
-        }, 1.5 * 1000)
       }
       )
         .catch(function(error) {
