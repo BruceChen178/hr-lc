@@ -973,7 +973,7 @@ export default {
   },
   mounted() {
     socket.setCallback(this.callback)
-    socket.initWebSocket('192.168.31.86', 9002)
+    socket.initWebSocket('localhost', 9002)
   },
   destroyed() {
     socket.close()

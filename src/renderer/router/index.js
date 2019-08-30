@@ -244,33 +244,33 @@ export const asyncRouterMap = [
       }
     ]
   },
-  {
-    path: '/config',
-    component: Layout,
-    redirect: '/config/items',
-    name: 'Config',
-    meta: { title: 'Config', icon: 'form' },
-    children: [
-      {
-        path: 'items',
-        name: 'Item',
-        component: () => import('@/views/config/items'),
-        meta: { title: 'Items', icon: 'table' }
-      },
-      {
-        path: 'metadata',
-        name: 'Metadata',
-        component: () => import('@/views/config/metadata'),
-        meta: { title: 'Metadata', icon: 'tree' }
-      },
-      {
-        path: 'parameters',
-        name: 'Parameters',
-        component: () => import('@/views/config/parameters'),
-        meta: { title: 'Parameters', icon: 'excel' }
-      }
-    ]
-  },
+  // {
+  //   path: '/config',
+  //   component: Layout,
+  //   redirect: '/config/items',
+  //   name: 'Config',
+  //   meta: { title: 'Config', icon: 'form' },
+  //   children: [
+  //     {
+  //       path: 'items',
+  //       name: 'Item',
+  //       component: () => import('@/views/config/items'),
+  //       meta: { title: 'Items', icon: 'table' }
+  //     },
+  //     {
+  //       path: 'metadata',
+  //       name: 'Metadata',
+  //       component: () => import('@/views/config/metadata'),
+  //       meta: { title: 'Metadata', icon: 'tree' }
+  //     },
+  //     {
+  //       path: 'parameters',
+  //       name: 'Parameters',
+  //       component: () => import('@/views/config/parameters'),
+  //       meta: { title: 'Parameters', icon: 'excel' }
+  //     }
+  //   ]
+  // },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
