@@ -7,6 +7,7 @@
 <script>
 import echarts from 'echarts' // echarts theme
 import { debounce } from '@/utils'
+// import socket from '@/utils/socket.js'
 require('echarts/theme/macarons')
 
 const animationDuration = 6000

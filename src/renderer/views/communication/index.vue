@@ -19,8 +19,8 @@
                     <div :key="item.name" style="margin-bottom: 10px; margin-left: 50px">
                         <el-button-group>
                             <el-button type="primary" style="width: 130px">{{ item.name }}</el-button>
-                            <el-button v-if="item.connected === 'CONNECTED'" type="success">Connected</el-button>
-                            <el-button v-else type="danger">Disconnected</el-button>
+                            <el-button v-if="item.connected === 'CONNECTED'" type="success" style="width: 105px">Connected</el-button>
+                            <el-button v-else type="danger" style="width: 105px">Disconnected</el-button>
                             <el-button type="warning">{{ item.delay }}</el-button>
                         </el-button-group>
                     </div>
@@ -33,8 +33,8 @@
                 <div :key="item.name" style="margin-bottom: 10px; margin-left: 50px; float: left">
                     <el-button-group>
                         <el-button type="primary" style="width: 100px">{{ item.name }}</el-button>
-                        <el-button v-if="item.connected === true" type="success">Connected</el-button>
-                        <el-button v-else type="danger">Disconnected</el-button>
+                        <el-button v-if="item.connected === true" type="success" style="width: 105px">Connected</el-button>
+                        <el-button v-else type="danger" style="width: 105px">Disconnected</el-button>
                     </el-button-group>
                 </div>
             </template>

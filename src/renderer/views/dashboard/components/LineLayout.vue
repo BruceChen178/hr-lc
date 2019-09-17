@@ -7,7 +7,7 @@
       <div
         slot="header"
         class="clearfix">
-        <span>POL TEST</span>
+        <span>POL Test</span>
 <!--        <el-button-->
 <!--          class="alarmItem"-->
 <!--          type="danger"-->
@@ -20,7 +20,7 @@
           <template v-for="(item, index) in polTest">
             <el-collapse-item :key="item.name">
               <template slot="title">
-                POL TEST 0{{ index + 1 }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                POL Test 0{{ index + 1 }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div v-if="item.connected">
                   <el-button
                     type="success"
@@ -199,7 +199,7 @@
     <el-card
       :class="{ hide : cfTestIsHide }"
       shadow="hover"
-      class="box-card">
+      class="box-card-2">
       <div
         slot="header"
         class="clearfix">
@@ -248,7 +248,7 @@
     <el-card
       :class="{ hide : bluAoiIsHide }"
       shadow="hover"
-      class="box-card">
+      class="box-card-2">
       <div
         slot="header"
         class="clearfix">
@@ -297,7 +297,7 @@
     <el-card
       :class="{ hide : fiAoiIsHide }"
       shadow="hover"
-      class="box-card">
+      class="box-card-2">
       <div
         slot="header"
         class="clearfix">
@@ -350,7 +350,7 @@
       <div
         slot="header"
         class="clearfix">
-        <span>FI TEST</span>
+        <span>FI Test</span>
 <!--        <el-button-->
 <!--          class="alarmItem"-->
 <!--          type="danger"-->
@@ -843,7 +843,7 @@ import socket from '@/utils/socket.js'
 export default {
   data() {
     return {
-      line: 11,
+      line: 1,
       polTestIsHide: false,
       piIsHide: false,
       ptAoiIsHide: false,
@@ -878,90 +878,90 @@ export default {
       // viAlarmNumber: 0,
       // autoPackingAlarmNumber: 0,
       // RTAlarmNumber: 0,
-      polTest: [{ name: 'POL Test 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'POL Test 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'POL Test 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'POL Test 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'POL Test 05', fgCode: 'NT140WHM-N34-8944', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'POL Test 06', fgCode: 'NT140WHM-N34-8945', capacity: '12345', tt: '', connected: false, state: '' }
+      polTest: [{ name: 'POL Test 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'POL Test 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'POL Test 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'POL Test 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'POL Test 05', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'POL Test 06', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      pi: [{ name: 'PI 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PI 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PI 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PI 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' }
+      pi: [{ name: 'PI 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PI 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PI 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PI 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      ptAoi: [{ name: 'PT AOI 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT AOI 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT AOI 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT AOI 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' }
+      ptAoi: [{ name: 'PT AOI 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT AOI 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT AOI 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT AOI 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      panelTest: [{ name: 'PT 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT 05', fgCode: 'NT140WHM-N34-8944', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'PT 06', fgCode: 'NT140WHM-N34-8945', capacity: '12345', tt: '', connected: false, state: '' }
+      panelTest: [{ name: 'PT 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT 05', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'PT 06', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      cfTest: [{ name: 'CF Test 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'CF Test 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'CF Test 03', fgCode: 'NT140WHM-N348942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'CF Test 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'CF Test 05', fgCode: 'NT140WHM-N34-8944', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'CF Test 06', fgCode: 'NT140WHM-N34-8945', capacity: '12345', tt: '', connected: false, state: '' }
+      cfTest: [{ name: 'CF Test 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'CF Test 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'CF Test 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'CF Test 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'CF Test 05', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'CF Test 06', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      bluAoi: [{ name: 'BLU AOI 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'BLU AOI 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'BLU AOI 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'BLU AOI 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' }
+      bluAoi: [{ name: 'BLU AOI 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'BLU AOI 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'BLU AOI 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'BLU AOI 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      autoAssy: [{ name: 'Auto Assy 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' }
+      autoAssy: [{ name: 'Auto Assy 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      autoTape: [{ name: 'Auto Tape 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' }
+      autoTape: [{ name: 'Auto Tape 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      fiAoi: [{ name: 'FI AOI 01', fgCode: '', capacity: '12345', tt: '', connected: false, state: 'down' },
-        { name: 'FI AOI 02', fgCode: '', capacity: '12345', tt: '', connected: false, state: 'down' },
-        { name: 'FI AOI 03', fgCode: '', capacity: '12345', tt: '', connected: false, state: 'down' },
-        { name: 'FI AOI 04', fgCode: '', capacity: '12345', tt: '', connected: false, state: 'down' },
-        { name: 'FI AOI 05', fgCode: '', capacity: '12345', tt: '', connected: false, state: 'down' },
-        { name: 'FI AOI 06', fgCode: '', capacity: '12345', tt: '', connected: false, state: 'down' }
+      fiAoi: [{ name: 'FI AOI 01', fgCode: '', capacity: '', tt: '', connected: false, state: 'down' },
+        { name: 'FI AOI 02', fgCode: '', capacity: '', tt: '', connected: false, state: 'down' },
+        { name: 'FI AOI 03', fgCode: '', capacity: '', tt: '', connected: false, state: 'down' },
+        { name: 'FI AOI 04', fgCode: '', capacity: '', tt: '', connected: false, state: 'down' },
+        { name: 'FI AOI 05', fgCode: '', capacity: '', tt: '', connected: false, state: 'down' },
+        { name: 'FI AOI 06', fgCode: '', capacity: '', tt: '', connected: false, state: 'down' }
       ],
-      filmAttach: [{ name: 'Film Attach 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: 'down' }
+      filmAttach: [{ name: 'Film Attach 01', fgCode: '', capacity: '', tt: '', connected: false, state: 'down' }
       ],
-      fiTest: [{ name: 'FI Test 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 05', fgCode: 'NT140WHM-N34-8944', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 06', fgCode: 'NT140WHM-N34-8945', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 07', fgCode: 'NT140WHM-N34-8946', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 08', fgCode: 'NT140WHM-N34-8947', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 09', fgCode: 'NT140WHM-N34-8948', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'FI Test 10', fgCode: 'NT140WHM-N34-8949', capacity: '12345', tt: '', connected: false, state: '' }
+      fiTest: [{ name: 'FI Test 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 05', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 06', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 07', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 08', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 09', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'FI Test 10', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      autoAffix: [{ name: 'AUTO Affix 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' }
+      autoAffix: [{ name: 'AUTO Affix 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      appAoi: [{ name: 'APP AOI 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' }
+      appAoi: [{ name: 'APP AOI 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      st: [{ name: 'ST 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'ST 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'ST 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'ST 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'ST 05', fgCode: 'NT140WHM-N34-8944', capacity: '12345', tt: '', connected: false, state: '' }
+      st: [{ name: 'ST 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'ST 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'ST 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'ST 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'ST 05', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      vi: [{ name: 'VI Test 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' }
+      vi: [{ name: 'VI Test 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      autoPacking: [{ name: 'Auto Packing 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' }
+      autoPacking: [{ name: 'Auto Packing 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ],
-      rt: [{ name: 'RT 01', fgCode: 'NT140WHM-N34-8940', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 02', fgCode: 'NT140WHM-N34-8941', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 03', fgCode: 'NT140WHM-N34-8942', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 04', fgCode: 'NT140WHM-N34-8943', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 05', fgCode: 'NT140WHM-N34-8944', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 06', fgCode: 'NT140WHM-N34-8945', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 07', fgCode: 'NT140WHM-N34-8946', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 08', fgCode: 'NT140WHM-N34-8947', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 09', fgCode: 'NT140WHM-N34-8948', capacity: '12345', tt: '', connected: false, state: '' },
-        { name: 'RT 10', fgCode: 'NT140WHM-N34-8949', capacity: '12345', tt: '', connected: false, state: '' }
+      rt: [{ name: 'RT 01', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 02', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 03', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 04', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 05', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 06', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 07', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 08', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 09', fgCode: '', capacity: '', tt: '', connected: false, state: '' },
+        { name: 'RT 10', fgCode: '', capacity: '', tt: '', connected: false, state: '' }
       ]
 
     }
@@ -1022,7 +1022,7 @@ export default {
             }
           }
         }
-        if (inspectName === 'FI TEST') {
+        if (inspectName === 'FI Test') {
           let e = 0
           for (; e < this.fiTest.length; e++) {
             if (this.fiTest[e].name === eqpName) {
@@ -1212,6 +1212,32 @@ export default {
         this.autoAffixIsHide = true
         this.appAoiIsHide = true
         this.autoPackingIsHide = true
+        this.viIsHide = true
+        this.stIsHide = true
+        this.piIsHide = true
+        this.RTIsHide = true
+      }
+      if (this.line === 1 || 2 || 4) {
+        this.autoTapeIsHide = true
+        this.autoAssyIsHide = true
+        this.filmAttachIsHide = true
+        this.autoAffixIsHide = true
+        this.appAoiIsHide = true
+        this.autoPackingIsHide = true
+        this.viIsHide = true
+        this.stIsHide = true
+        // this.piIsHide = true
+        this.RTIsHide = true
+      }
+      if (this.line === 7) {
+        this.ptAoiIsHide = true
+        this.autoAssyIsHide = true
+        this.filmAttachIsHide = true
+        this.autoAffixIsHide = true
+        this.appAoiIsHide = true
+        this.autoPackingIsHide = true
+        this.viIsHide = true
+        this.stIsHide = true
       }
     },
     getEQPList() {
@@ -1260,7 +1286,7 @@ export default {
                 }
               }
             }
-            if (inspectName === 'FI TEST') {
+            if (inspectName === 'FI Test') {
               let e = 0
               for (; e < this.fiTest.length; e++) {
                 if (this.fiTest[e].name === InspectionLists[j].name) {
