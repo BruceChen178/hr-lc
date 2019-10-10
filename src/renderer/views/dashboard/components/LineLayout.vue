@@ -3,7 +3,7 @@
     <el-card
       :class="{ hide : polTestIsHide }"
       shadow="hover"
-      class="box-card">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
@@ -52,7 +52,7 @@
     <el-card
       :class="{ hide : piIsHide }"
       shadow="hover"
-      class="box-card">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
@@ -101,17 +101,11 @@
     <el-card
       :class="{ hide : ptAoiIsHide }"
       shadow="hover"
-      class="box-card">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
         <span>PT AOI</span>
-<!--        <el-button-->
-<!--          class="alarmItem"-->
-<!--          type="danger"-->
-<!--          circle>-->
-<!--          {{ ptAoiAlarmNumber }}-->
-<!--        </el-button>-->
       </div>
       <div class="text item">
         <el-collapse accordion>
@@ -148,9 +142,9 @@
       </div>
     </el-card>
     <el-card
-      :class="{ hide : panelTestIsHide }"
+      :class="{ hide : panelTestIsHide, boxCard : panelTestBoxCard, boxCard2 : panelTestBoxCard2 }"
       shadow="hover"
-      class="box-card">
+      >
       <div
         slot="header"
         class="clearfix">
@@ -197,9 +191,9 @@
       </div>
     </el-card>
     <el-card
-      :class="{ hide : cfTestIsHide }"
+      :class="{ hide : cfTestIsHide, boxCard : cfTestBoxCard, boxCard2 : cfTestBoxCard2  }"
       shadow="hover"
-      class="box-card-2">
+      >
       <div
         slot="header"
         class="clearfix">
@@ -246,9 +240,9 @@
       </div>
     </el-card>
     <el-card
-      :class="{ hide : bluAoiIsHide }"
+      :class="{ hide : bluAoiIsHide, boxCard : bluAoiBoxCard, boxCard2 : bluAoiBoxCard2 }"
       shadow="hover"
-      class="box-card-2">
+      >
       <div
         slot="header"
         class="clearfix">
@@ -295,9 +289,58 @@
       </div>
     </el-card>
     <el-card
-      :class="{ hide : fiAoiIsHide }"
+            :class="{ hide : autoAssyIsHide }"
+            shadow="hover"
+            class="boxCard">
+      <div
+              slot="header"
+              class="clearfix">
+        <span>Auto Assy</span>
+        <!--        <el-button-->
+        <!--          class="alarmItem"-->
+        <!--          type="danger"-->
+        <!--          circle>-->
+        <!--          {{ autoAssyAlarmNumber }}-->
+        <!--        </el-button>-->
+      </div>
+      <div class="text item">
+        <el-collapse accordion>
+          <template v-for="(item, index) in autoAssy">
+            <el-collapse-item :key="item.name">
+              <template slot="title">
+                Auto Assy 0{{ index + 1 }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div v-if="item.connected">
+                  <el-button
+                          type="success"
+                          icon="el-icon-check"
+                          size="mini"
+                          circle />
+                </div>
+                <div v-else>
+                  <el-button
+                          type="danger"
+                          icon="el-icon-close"
+                          size="mini"
+                          circle />
+                </div>
+              </template>
+              <el-row>
+                <span class="myfont">FG Code:</span>
+                <span class="dataText">{{ item.fgCode }}</span>
+              </el-row>
+              <el-row>
+                <span class="myfont">capacity:</span>
+                <span>{{ item.capacity }}</span>
+              </el-row>
+            </el-collapse-item>
+          </template>
+        </el-collapse>
+      </div>
+    </el-card>
+    <el-card
+      :class="{ hide : fiAoiIsHide, boxCard : fiAoiBoxCard, boxCard2 : fiAoiBoxCard2 }"
       shadow="hover"
-      class="box-card-2">
+      >
       <div
         slot="header"
         class="clearfix">
@@ -344,9 +387,9 @@
       </div>
     </el-card>
     <el-card
-      :class="{ hide : fiTestIsHide }"
+      :class="{ hide : fiTestIsHide, boxCard : fiTestBoxCard, boxCard2 : fiTestBoxCard2 }"
       shadow="hover"
-      class="box-card-2">
+      >
       <div
         slot="header"
         class="clearfix">
@@ -395,7 +438,7 @@
     <el-card
       :class="{ hide : stIsHide }"
       shadow="hover"
-      class="box-card-2">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
@@ -441,59 +484,11 @@
         </el-collapse>
       </div>
     </el-card>
-    <el-card
-      :class="{ hide : autoAssyIsHide }"
-      shadow="hover"
-      class="box-card">
-      <div
-        slot="header"
-        class="clearfix">
-        <span>Auto Assy</span>
-<!--        <el-button-->
-<!--          class="alarmItem"-->
-<!--          type="danger"-->
-<!--          circle>-->
-<!--          {{ autoAssyAlarmNumber }}-->
-<!--        </el-button>-->
-      </div>
-      <div class="text item">
-        <el-collapse accordion>
-          <template v-for="(item, index) in autoAssy">
-            <el-collapse-item :key="item.name">
-              <template slot="title">
-                Auto Assy 0{{ index + 1 }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div v-if="item.connected">
-                  <el-button
-                    type="success"
-                    icon="el-icon-check"
-                    size="mini"
-                    circle />
-                </div>
-                <div v-else>
-                  <el-button
-                    type="danger"
-                    icon="el-icon-close"
-                    size="mini"
-                    circle />
-                </div>
-              </template>
-              <el-row>
-                <span class="myfont">FG Code:</span>
-                <span class="dataText">{{ item.fgCode }}</span>
-              </el-row>
-              <el-row>
-                <span class="myfont">capacity:</span>
-                <span>{{ item.capacity }}</span>
-              </el-row>
-            </el-collapse-item>
-          </template>
-        </el-collapse>
-      </div>
-    </el-card>
+
     <el-card
       :class="{ hide : autoTapeIsHide }"
       shadow="hover"
-      class="box-card">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
@@ -542,7 +537,7 @@
     <el-card
       :class="{ hide : filmAttachIsHide }"
       shadow="hover"
-      class="box-card">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
@@ -591,7 +586,7 @@
     <el-card
       :class="{ hide : autoAffixIsHide }"
       shadow="hover"
-      class="box-card">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
@@ -640,7 +635,7 @@
     <el-card
       :class="{ hide : appAoiIsHide }"
       shadow="hover"
-      class="box-card">
+      class="boxCard">
       <div
         slot="header"
         class="clearfix">
@@ -689,7 +684,7 @@
     <el-card
       :class="{ hide : viIsHide }"
       shadow="hover"
-      class="box-card-2">
+      class="boxCard2">
       <div
         slot="header"
         class="clearfix">
@@ -738,7 +733,7 @@
     <el-card
       :class="{ hide : RTIsHide }"
       shadow="hover"
-      class="box-card-2">
+      class="boxCard2">
       <div
         slot="header"
         class="clearfix">
@@ -787,7 +782,7 @@
     <el-card
             :class="{ hide : autoPackingIsHide }"
             shadow="hover"
-            class="box-card">
+            class="boxCard">
       <div
               slot="header"
               class="clearfix">
@@ -837,7 +832,7 @@
 </template>
 
 <script>
-import { getInspectionLists } from '@/api/settings'
+import { getInspectionLists, getLineInfo } from '@/api/settings'
 import { GetCurrentCapacity } from '@/api/others'
 import socket from '@/utils/socket.js'
 export default {
@@ -861,6 +856,16 @@ export default {
       viIsHide: false,
       autoPackingIsHide: false,
       RTIsHide: false,
+      panelTestBoxCard: false,
+      panelTestBoxCard2: false,
+      cfTestBoxCard: false,
+      cfTestBoxCard2: false,
+      bluAoiBoxCard: false,
+      bluAoiBoxCard2: false,
+      fiAoiBoxCard: false,
+      fiAoiBoxCard2: false,
+      fiTestBoxCard: false,
+      fiTestBoxCard2: false,
       // polTestAlarmNumber: 0,
       // piAlarmNumber: 0,
       // ptAoiAlarmNumber: 0,
@@ -967,6 +972,7 @@ export default {
     }
   },
   created() {
+    this.getLineInfos()
     this.lineChange()
     this.getEQPList()
     this.getCapacity()
@@ -1202,7 +1208,58 @@ export default {
       }
     },
     lineChange() {
-      if (this.line === 11) {
+      if (this.line === 1 || this.line === 2 || this.line === 3 || this.line === 4 || this.line === 5) {
+        this.autoTapeIsHide = true
+        this.autoAssyIsHide = true
+        this.filmAttachIsHide = true
+        this.autoAffixIsHide = true
+        this.appAoiIsHide = true
+        this.autoPackingIsHide = true
+        this.viIsHide = true
+        this.stIsHide = true
+        this.RTIsHide = true
+        this.panelTestBoxCard = true
+        this.cfTestBoxCard2 = true
+        this.bluAoiBoxCard2 = true
+        this.fiAoiBoxCard2 = true
+        this.fiTestBoxCard2 = true
+      }
+      if (this.line === 6 || this.line === 7) {
+        this.ptAoiIsHide = true
+        this.autoAssyIsHide = true
+        this.filmAttachIsHide = true
+        this.autoAffixIsHide = true
+        this.appAoiIsHide = true
+        this.autoPackingIsHide = true
+        this.viIsHide = true
+        this.stIsHide = true
+        this.autoTapeIsHide = true
+        this.panelTestBoxCard = true
+        this.cfTestBoxCard = true
+        this.bluAoiBoxCard2 = true
+        this.fiAoiBoxCard2 = true
+        this.fiTestBoxCard2 = true
+      }
+      if (this.line === 11 || this.line === 12) {
+        this.polTestIsHide = true
+        this.ptAoiIsHide = true
+        this.cfTestIsHide = true
+        this.autoTapeIsHide = true
+        // this.autoAssyIsHide = true
+        this.filmAttachIsHide = true
+        this.autoAffixIsHide = true
+        this.appAoiIsHide = true
+        this.autoPackingIsHide = true
+        // this.viIsHide = true
+        this.stIsHide = true
+        // this.piIsHide = true
+        // this.RTIsHide = true
+        this.panelTestBoxCard = true
+        this.bluAoiBoxCard = true
+        this.fiAoiBoxCard2 = true
+        this.fiTestBoxCard2 = true
+      }
+      if (this.line === 13 || this.line === 14 || this.line === 15 || this.line === 16) {
         this.polTestIsHide = true
         this.ptAoiIsHide = true
         this.cfTestIsHide = true
@@ -1216,28 +1273,10 @@ export default {
         this.stIsHide = true
         this.piIsHide = true
         this.RTIsHide = true
-      }
-      if (this.line === 1 || 2 || 4) {
-        this.autoTapeIsHide = true
-        this.autoAssyIsHide = true
-        this.filmAttachIsHide = true
-        this.autoAffixIsHide = true
-        this.appAoiIsHide = true
-        this.autoPackingIsHide = true
-        this.viIsHide = true
-        this.stIsHide = true
-        // this.piIsHide = true
-        this.RTIsHide = true
-      }
-      if (this.line === 7) {
-        this.ptAoiIsHide = true
-        this.autoAssyIsHide = true
-        this.filmAttachIsHide = true
-        this.autoAffixIsHide = true
-        this.appAoiIsHide = true
-        this.autoPackingIsHide = true
-        this.viIsHide = true
-        this.stIsHide = true
+        this.panelTestBoxCard2 = true
+        this.bluAoiBoxCard2 = true
+        this.fiAoiBoxCard2 = true
+        this.fiTestBoxCard2 = true
       }
     },
     getEQPList() {
@@ -1421,19 +1460,27 @@ export default {
         this.appAoi[0].capacity = capacity.app_aoi_unit1_cap
         this.appAoi[1].capacity = capacity.app_aoi_unit2_cap
       })
+    },
+    getLineInfos() {
+      getLineInfo().then(response => {
+        var lineNo = response.lineNo
+        // var lineDescription = response.lineDescription
+        this.line = lineNo
+        this.lineChange()
+      })
     }
   }
 }
 </script>
 
 <style scoped>
-  .box-card {
+  .boxCard {
       width: 404px;
       height: 430px;
       float: left;
       margin: 5px;
     }
-  .box-card-2 {
+  .boxCard2 {
     width: 404px;
     height: 610px;
     float: left;

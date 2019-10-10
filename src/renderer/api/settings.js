@@ -42,3 +42,10 @@ export function SwitchMESConnectMode() {
     method: 'get'
   })
 }
+
+export function getLineInfo() {
+  return request({
+    url: '/v1/settings/current/line',
+    method: 'get'
+  })
+}
