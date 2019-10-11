@@ -96,12 +96,12 @@
       <el-form-item
         label="FI_AOI_HOSTNAME"
         prop="fiAOIHostName">
-        <el-input v-model="temp.fiHostName" />
+        <el-input v-model="temp.fiAOIHostName" />
       </el-form-item>
       <el-form-item
         label="FI_TEST_HOSTNAME"
         prop="fiHostName">
-        <el-input v-model="temp.fiAOIHostName" />
+        <el-input v-model="temp.fiHostName" />
       </el-form-item>
       <el-form-item
         label="FILM_ATTACH_HOSTNAME"
