@@ -972,8 +972,8 @@ export default {
     }
   },
   created() {
+    // this.lineChange()
     this.getLineInfos()
-    this.lineChange()
     this.getEQPList()
     this.getCapacity()
   },
