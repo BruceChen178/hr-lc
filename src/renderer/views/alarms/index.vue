@@ -17,18 +17,18 @@
             />
           </el-row>
           <el-table v-loading="statistic.listLoading" :data="statistic.list" border fit highlight-current-row style="width: 100%">
-            <el-table-column align="center" label="Date" width="150">
+            <el-table-column align="center" label="Date" width="200">
               <template slot-scope="scope">
                 <span>{{ scope.row.OccuredDate }}</span>
               </template>
             </el-table-column>
-            <el-table-column align="center" label="PLC Name" width="100">
+            <el-table-column align="center" label="PLC Name" width="200">
               <template slot-scope="scope">
                 <span>{{ scope.row.sourceName }}</span>
               </template>
             </el-table-column>
 
-            <el-table-column width="120px" align="center" label="Alarm Code">
+            <el-table-column width="200px" align="center" label="Alarm Code">
               <template slot-scope="scope">
                 <span>{{ scope.row.AlarmCode }}</span>
               </template>
@@ -39,7 +39,7 @@
                 <span>{{ scope.row.Description }}</span>
               </template>
             </el-table-column>
-            <el-table-column width="100px" align="center" label="Count">
+            <el-table-column width="130px" align="center" label="Count">
               <template slot-scope="scope">
                 <span>{{ scope.row.OccuredCount }}</span>
               </template>
@@ -61,12 +61,12 @@
                     @change="getHistoryList"
             />
             <el-table v-loading="history.listLoading" :data="history.list" border fit highlight-current-row style="width: 100%">
-              <el-table-column align="center" label="PLC Name" width="100">
+              <el-table-column align="center" label="PLC Name" width="160">
                 <template slot-scope="scope">
                   <span>{{ scope.row.sourceName }}</span>
                 </template>
               </el-table-column>
-              <el-table-column width="120px" align="center" label="Unit Name">
+              <el-table-column width="140px" align="center" label="Unit Name">
                 <template slot-scope="scope">
                   <span>{{ scope.row.unitName }}</span>
                 </template>
@@ -81,12 +81,12 @@
                   <span>{{ scope.row.description }}</span>
                 </template>
               </el-table-column>
-              <el-table-column align="center" label="Occurred Time" width="150">
+              <el-table-column align="center" label="Occurred Time" width="155">
                 <template slot-scope="scope">
                   <span>{{ scope.row.occuredTime }}</span>
                 </template>
               </el-table-column>
-              <el-table-column width="100px" align="center" label="Release Time">
+              <el-table-column width="155px" align="center" label="Release Time">
                 <template slot-scope="scope">
                   <span>{{ scope.row.releaseTime }}</span>
                 </template>
