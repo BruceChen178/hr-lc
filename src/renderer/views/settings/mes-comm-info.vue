@@ -129,7 +129,7 @@
         <el-input v-model="temp.viHostName" />
       </el-form-item>
       <el-form-item
-        label="RT_HOSTNAME"
+        label="ASSY_TEST_HOSTNAME"
         prop="rtHostName">
         <el-input v-model="temp.rtHostName" />
       </el-form-item>

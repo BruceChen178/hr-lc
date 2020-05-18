@@ -6,8 +6,8 @@
 <!--      <template v-if="device!=='mobile'">-->
         <alarm class="right-menu-item hover-effect" />
         <error-log class="errLog-container right-menu-item hover-effect" />
-        <screenfull class="right-menu-item hover-effect" />
-        <lang-select class="right-menu-item hover-effect" />
+<!--        <screenfull class="right-menu-item hover-effect" />-->
+<!--        <lang-select class="right-menu-item hover-effect" />-->
 <!--      </template>-->
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">

@@ -1,8 +1,8 @@
 {
-  "name": "electron-vue-admin",
-  "version": "3.0.0",
-  "author": "Pan <panfree23@gmail.com>",
-  "description": "An electron-vue project",
+  "name": "hr-lc",
+  "version": "1.0.0",
+  "author": "sz hongran",
+  "description": "Line Controller",
   "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {

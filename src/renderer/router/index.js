@@ -128,27 +128,27 @@ export const asyncRouterMap = [
       }
     ]
   },
-  {
-    path: '/parameters',
-    component: Layout,
-    redirect: '/parameters/machine',
-    name: 'Parameters',
-    meta: { title: 'Parameters', icon: 'list' },
-    children: [
-      {
-        path: 'machine',
-        name: 'Machine',
-        component: () => import('@/views/parameters/machine'),
-        meta: { title: 'Machine', icon: 'tab' }
-      },
-      {
-        path: 'product',
-        name: 'Product',
-        component: () => import('@/views/parameters/product'),
-        meta: { title: 'Product', icon: 'tab' }
-      }
-    ]
-  },
+  // {
+  //   //   path: '/parameters',
+  //   //   component: Layout,
+  //   //   redirect: '/parameters/machine',
+  //   //   name: 'Parameters',
+  //   //   meta: { title: 'Parameters', icon: 'list' },
+  //   //   children: [
+  //   //     {
+  //   //       path: 'machine',
+  //   //       name: 'Machine',
+  //   //       component: () => import('@/views/parameters/machine'),
+  //   //       meta: { title: 'Machine', icon: 'tab' }
+  //   //     },
+  //   //     {
+  //   //       path: 'product',
+  //   //       name: 'Product',
+  //   //       component: () => import('@/views/parameters/product'),
+  //   //       meta: { title: 'Product', icon: 'tab' }
+  //   //     }
+  //   //   ]
+  //   // },
   {
     path: '/settings',
     component: Layout,
