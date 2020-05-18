@@ -17,11 +17,14 @@ function createWindow() {
   /**
    * Initial window options
    */
-  mainWindow = new BrowserWindow({
-    height: 768,
-    useContentSize: true,
-    width: 1024
-  })
+  // mainWindow = new BrowserWindow({
+  //   height: 768,
+  //   useContentSize: true,
+  //   width: 1024
+  // })
+  mainWindow = new BrowserWindow({ show: false })
+  mainWindow.maximize()
+  mainWindow.show()
 
   mainWindow.loadURL(winURL)
 
