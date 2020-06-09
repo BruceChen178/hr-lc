@@ -835,6 +835,7 @@
 import { getInspectionLists, getLineInfo } from '@/api/settings'
 import { GetCurrentCapacity } from '@/api/others'
 import socket from '@/utils/socket.js'
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -1206,7 +1207,25 @@ export default {
           this.autoPacking[0].capacity = currentCapacity
         }
       }
+      if (topic === 'AlarmInfo') {
+        var alarms = []
+        alarms = msg['pub']['content']['alarms']
+        this.$store.dispatch('alarm/getPushAlarmGridData', alarms)
+        this.$store.dispatch('alarm/getNewAlarmNum', alarms.length)
+        if (alarms.length !== 0) {
+          this.$store.dispatch('alarm/showAlarmDialog')
+        } else {
+          this.$store.dispatch('alarm/hideAlarmDialog')
+        }
+        // console.log(this.$store.state.alarm.alarmNumber, this.$store.state.alarm.alarmGridData, this.$store.state.alarm.alarmDialogTableVisible)
+      }
     },
+    ...mapActions([
+      'showAlarmDialog',
+      'hideAlarmDialog',
+      'getNewAlarmNum',
+      'getPushAlarmGridData'
+    ]),
     lineChange() {
       if (this.line === 1 || this.line === 2 || this.line === 3 || this.line === 4 || this.line === 5) {
         this.autoTapeIsHide = true

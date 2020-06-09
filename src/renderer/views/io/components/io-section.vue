@@ -39,6 +39,7 @@
 import IOTable from './io-table'
 import { getMitPLCConfigs, GetEQCurrentMetadataByDSId } from '@/api/datasource'
 import socket from '@/utils/socket.js'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'IOSection',
@@ -112,7 +113,25 @@ export default {
           }
         }
       }
+      if (topic === 'AlarmInfo') {
+        var alarms = []
+        alarms = msg['pub']['content']['alarms']
+        this.$store.dispatch('alarm/getPushAlarmGridData', alarms)
+        this.$store.dispatch('alarm/getNewAlarmNum', alarms.length)
+        if (alarms.length !== 0) {
+          this.$store.dispatch('alarm/showAlarmDialog')
+        } else {
+          this.$store.dispatch('alarm/hideAlarmDialog')
+        }
+        // console.log(this.$store.state.alarm.alarmNumber, this.$store.state.alarm.alarmGridData, this.$store.state.alarm.alarmDialogTableVisible)
+      }
     },
+    ...mapActions([
+      'showAlarmDialog',
+      'hideAlarmDialog',
+      'getNewAlarmNum',
+      'getPushAlarmGridData'
+    ]),
     getSectionConfigs() {
       this.query.currentDS = this.sourceId
       getMitPLCConfigs(this.query)

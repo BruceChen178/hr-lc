@@ -7,15 +7,15 @@
     <el-row>
       <LineLayout />
     </el-row>
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-      <line-chart :chart-data="lineChartData" />
-    </el-row>
+<!--    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">-->
+<!--      <line-chart :chart-data="lineChartData" />-->
+<!--    </el-row>-->
 
-    <el-row>
-      <div class="chart-wrapper">
-        <bar-chart />
-      </div>
-    </el-row>
+<!--    <el-row>-->
+<!--      <div class="chart-wrapper">-->
+<!--        <bar-chart />-->
+<!--      </div>-->
+<!--    </el-row>-->
   </div>
 </template>
 
@@ -54,30 +54,7 @@ export default {
   },
   data() {
     return {
-      lineChartData: lineChartData.newVisitis,
-      formInline: {
-        agTemp: '',
-        coolingTemp: ''
-      },
-      agTemptableData: [{
-        ch1: '50.1',
-        ch2: '50.9',
-        ch3: '50.5',
-        ch4: '50.3',
-        ch5: '50.1',
-        ch6: '49.8',
-        ch7: '49.6',
-        ch8: '50.6',
-        ch9: '50.1',
-        ch10: '50.3',
-        ch11: '50.6',
-        ch12: '49.1',
-        avg: '50'
-      }],
-      coolingTemptableData: [{
-        ch1: '25.1',
-        ch2: '25.2'
-      }]
+      lineChartData: lineChartData.newVisitis
 
     }
   },

@@ -6,6 +6,7 @@ import permission from './modules/permission'
 import errorLog from './modules/errorLog'
 import ioDevice from './modules/ioDevice'
 import parameters from './modules/parameters'
+import alarm from './modules/alarm'
 import getters from './getters'
 Vue.use(Vuex)
 
@@ -25,7 +26,8 @@ const store = new Vuex.Store({
     permission,
     errorLog,
     ioDevice,
-    parameters
+    parameters,
+    alarm
   },
   state: {
     socket: {
@@ -74,6 +76,18 @@ const store = new Vuex.Store({
             console.log(sourceId, devType, devNo, devVal)
           }
         }
+      }
+      if (topic === 'AlarmInfo') {
+        var alarms = []
+        alarms = msg['pub']['content']['alarms']
+        state.alarm.alarmGridData = alarms
+        state.alarm.alarmNumber = alarms.length
+        if (state.alarm.alarmNumber !== 0) {
+          state.alarm.alarmDialogTableVisible = true
+        } else {
+          state.alarm.alarmDialogTableVisible = false
+        }
+        console.log(alarms)
       }
     },
     // mutations for reconnect methods
